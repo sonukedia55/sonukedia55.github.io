@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+*{margin:0px;}body{font-family:"open sans",sans-serif;font:aerial}.hj1{opacity:0;transform:translateX(-50px);transition: all 0.7s ease-in-out;}.hj2{opacity:1;
+transform:translateX(20px);transition: all 0.7s ease-in-out;z-index:0;}.hj3{opacity:0;transition: all 0.7s ease-in-out;transform:rotate(33deg);}.hj4{opacity:1;transform:rotate(0deg);transition: all  0.4s ease-in-out;z-index:0;}.hj5{opacity:0;transform:translateX(-40px);color:white;}.hj6{opacity:1;margin-top:100px;transform:translateX(0px);transition: all 0.6s ease-in-out;font-size:40px;color:white;}.hj71{opacity:0;transform:rotate(23deg);transform:translateX(200px);transition: all 0.7s ease-in-out;}.hj81{opacity:1;transform:rotate(0deg);transform:translateX(0px);transition: all 0.4s ease-in-out;z-index:0;}.hj72{opacity:0;transform:rotate(23deg);transform:translateX(-200px);transition: all 0.7s ease-in-out;}.hj82{opacity:1;transform:rotate(0deg);transform:translateX(0px);transition: all 0.4s ease-in-out;z-index:0;}.hj91{opacity:0;transform:translateX(200px);transition: all 0.7s ease-in-out;}.hj101{opacity:1;transform:translateX(0px);z-index:0;}.hj92{transform:translateX(-200px);transition: all 0.7s ease-in-out;}.hj102{opacity:1;transform:translateX(0px);transition: all 0.7s ease-in-out;z-index:0;}#ppic{border:solid 4px white;z-index:4;}#ppic2{border:solid 2px white;z-index:5;}.hj2 img{border:solid 2px black;}.hj3{border:solid 2px black;}#img2{border:solid 2px white;}ul{list-style:none;}li{decoration:none;}.hello li{float:left;margin:15px;font-size:15px;}.hello li:hover{float:left;margin:10px;font-size:23px;cursor:pointer;border:solid 1px red;transition: all 0.3s ease-in-out;}#chk img:hover{transform:rotate(360deg);transition: all 0.5s ease-in-out;margin:0px 20px 0px 0px;cursor:pointer}#chk img{border:solid 2px black;}#mailme:hover{width:200px;transform:scale(1.2)}#close{background-color:red;}#sending{background-color:maroon;}#close:hover{background-color:maroon;cursor:pointer}#sending:hover{background-color:orange;}input:focus{outline:solid 2px red;}textarea:focus{outline:solid 2px red;}
+</style>
+<script  type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$("document").ready(function(){
+	$(".hello").css({'opacity' :0},0);
+	$("#maill").hide(00);
+	$("#check").hide(00);
+	$("#ppic2").css({'opacity' :0},0);
+	$("#hh1").click(function(){$('html,body').animate({scrollTop:440},1000);});
+	$('#hh2').click(function(){$('html,body').animate({scrollTop:960},1000);});
+	$('#hh3').click(function(){$('html,body').animate({scrollTop:1560},1000);});
+	$('#hh4').click(function(){$('html,body').animate({scrollTop:2200},1000);});
+	$('#hh5').click(function(){$('html,body').animate({scrollTop:2760},1000);});
+	$(window).scroll(function(){
+				var wScroll = $(window).scrollTop();
+				$('#check').val(wScroll);
+				if(wScroll<400){$("#ppic2").css({'opacity' :0,'transition' : 'all 0.5s ease-in-out'});$("#ppic").show(00);$("#img2").show(00);$(".hello").css({'opacity' :0,'transition' : 'all 0s ease-in-out'});$('#img2').css({'transform': 'translate(0px,'+wScroll/(-5.1)+'%)'});$('#ppic').css({'transform': 'translate(0px,'+wScroll/(-1.6)+'%)'});}else{$("#ppic2").css({'opacity' :1,'transition' : 'all 0.5s ease-in-out'});$("#ppic").hide(00);$("#img2").hide(00);$(".hello").css({'opacity' :1},0);}$('#mailme').click(function(){$("#maill").show("fast");});$('#close').click(function(){$("#maill").hide("fast");});if(wScroll > 300){$('.hj1').addClass('hj2');}if(wScroll < 200){$('.hj2').addClass('hj1');}if(wScroll > 760){$('.hj3').addClass('hj4');}if(wScroll > 1400){$('.hj5').addClass('hj6');}if(wScroll < 1700){$('.hj6').addClass('hj5');}if(wScroll > 1700){$('.hj6').addClass('hj5');}if(wScroll > 2000){$('.hj71').addClass('hj81');$('.hj72').addClass('hj82');}if(wScroll > 2630){$('.hj91').addClass('hj101');$('.hj92').addClass('hj102');$(".hj91").show(00);$(".hj101").show(00);$(".hj92").show(00);$(".hj102").show(00);$(".f1").css({'opacity' :0},0);}if(wScroll > 2951){$(".hj91").hide(00);$(".hj101").hide(00);$(".hj92").hide(00);$(".hj102").hide(00);$('.hj101').addClass('hj91');$('.hj91').addClass('hj101');$('.hj92').addClass('hj102');$(".f1").css({'opacity' :1},0);}
+			});
+});
+</script>
+</head>
+<body>
+	<div class="hello" style="min-height:50px;position:fixed;background-color:black; width:100%;z-index:3;color:white;border:solid 2px white;"><ul style="float:left;">
+				<li id="hh1" >INTRODUCTION</li>
+				<li id="hh2" >CONTACT</li>
+				<li id="hh3" >HOBBIES</li>
+				<li id="hh4" >WORKSPACE</li>
+				<li id="hh5" >SPECILITIES</li></ul>
+				<h3 style="margin:10px;float:right">Sonu Kedia</h3>
+	</div>
+	<div ><img src="model.jpg" id="img2" style="height:500px; width:100%; position:fixed;z-index:1;"/><img src="modelti.jpg" id="ppic" style="height:200px;width:200px;z-index:2;position:fixed;margin-left:79%;margin-top:30%;"/><img src="modelti.jpg" id="ppic2" style="height:50px;width:50px;z-index:4;position:fixed;margin-left:87%;"/>
+	</div><div style="clear:both"></div>  
+	<input type="text"style="width:100px;height:50px;position:fixed;z-index:5;" id="check" />
+	<div style="clear:both"></div>
+	<div class="start" style="min-height:900px;width:100%;background:-webkit-gradient(linear,left top,right bottom,color-stop(25%,cornflowerblue),color-stop(55%,cornflowerblue),color-stop(35%,lightsteelblue));text-align:center;margin-top:450px;position:absolute;"><i><h1 style="margin-top:150px;color:white">
+			<a id="hh1" style="background:-webkit-gradient(linear,left center,right center,color-stop(35%,blue),color-stop(95%,cornflowerblue),color-stop(5%,cornflowerblue));"/>------INTRODUCTION------</a></h1></i><br></br>
+			<div class="t1" style="background-color:white;width:80%;min-height:200px; margin:0px 10%" align="center"><br></br>
+						<div class="hj1"  style="text-align:center;z-index:0;">  <img src="modelsm.jpg" style="height:200px;width:200px;margin:10px;"/>   <img src="modelsm.jpg" style="height:200px;width:200px;margin:10px;"/><img src="modelsm.jpg" style="height:200px;width:200px;margin:10px;"/>   <img src="modelsm.jpg" style="height:200px;width:200px;margin:10px;"/></div>
+			</div><br></br>
+						
+			<i><h1 style="margin-top:150px;color:white">
+			<a id="hh2" style="background:-webkit-gradient(linear,left center,right center,color-stop(35%,blue),color-stop(95%,lightsteelblue),color-stop(5%,cornflowerblue));"/>------CONTACT------</a></h1></i><br></br>
+			<div class="t2" style="background-color:white;width:80%;min-height:250px; margin:0px 10%" align="center"><br></br>
+					<div style="text-align:center;z-index:0;">  <img class="hj3" src="modelsm.jpg" style="height:200px;width:200px;margin:10px;"/>   <img class="hj3" src="modelsm.jpg" style="height:200px;width:200px;margin:10px;"/><img class="hj3" src="modelsm.jpg" style="height:200px;width:200px;margin:10px;"/>   <img class="hj3" src="modelsm.jpg" style="height:200px;width:200px;margin:10px;"/></div>
+			</div><br></br>
+			<i><h1 style="margin-top:150px;color:white">
+			<a id="hh3" style="background:-webkit-gradient(linear,left center,right center,color-stop(35%,blue),color-stop(95%,lightsteelblue),color-stop(5%,lightsteelblue));"/>------HOBBIES------</a></h1></i>
+			<div class="t2" style="margin-top:5%;background-image:url(tti.jpeg);background-size:100% 100%;background-position:top center;background-repeat:repeat;background-attachment:fixed;width:100%;height:400px;" align="center">
+					<div style="text-align:center;z-index:2;">
+						
+									<ul class="hj5" style="margin-top:50px;"></br>
+										<li>--Studying and Learning--</li><br>
+										<li>--Computering and Programming--</li></br>
+										<li>--Outing and parties--</li></br>
+										<li>--Eager to Begain--</li>
+									</ul>		
+			</div></div>
+			<br></br>
+			<i><h1 style="margin-top:150px;color:white">
+			<a id="hh4" style="background:-webkit-gradient(linear,left center,right center,color-stop(35%,blue),color-stop(95%,cornflowerblue),color-stop(5%,cornflowerblue));"/>------WORKSPACE------</a></h1></i><br></br>
+			<div class="t2" style="background-image:url(mmm.jpg);background-size:100% 100%;background-position:bottom center;background-repeat:no-repeat;background-attachment:fixed;width:100%;min-height:250px;" align="center"><br></br>
+					<div style="text-align:center;z-index:0;">  <img class="hj71" src="ww.jpeg" style="height:200px;width:200px;margin:50px;border-radius:50%;border:solid 2px white;"/>   <img class="hj3" src="www.jpg" style="height:200px;width:200px;margin:60px;border-radius:50%;border:solid 2px white;"/> <img class="hj72" src="wi.jpg" style="height:200px;width:200px;margin:60px;border-radius:50%;border:solid 2px white;"/></div>
+			</div><br></br>
+			<i><h1 style="margin-top:100px;color:white">
+			<a id="hh5" style="background:-webkit-gradient(linear,left center,right center,color-stop(35%,blue),color-stop(95%,cornflowerblue),color-stop(5%,cornflowerblue));"/>------SPECILITIES------</a></h1></i>
+			<div class="t2" style="margin-top:5%;background-image:url(mmmm.jpg);background-size:100% 100%;background-position:top center;background-repeat:repeat;background-attachment:fixed;width:100%;height:450px;" align="center">
+					<div style="text-align:center;z-index:2;">
+						
+									<b><ul  style="margin-top:50px;color:black;font-size:30px;"></br>
+										<li class="hj91" >--Graphics and Photoshop--</li><br><br>
+										<li class="hj92">--Websites and Internet--</li></br></br>
+										<li class="hj91">--Outing and parties--</li></br></br>
+										<li class="hj92">--Eager to Begain--</li><br><br></br></br>
+										<h1 class="f1" style="margin-top:-300px;opacity:0;">THANK YOU!!!</h1><br>
+										<u style="color:white;"><h3 class="f1" style="margin-top:10px;opacity:0;color:white;">For patience watching, Feel free to Contact!!!</h3></u>
+									</ul></b>
+							
+							
+			</div></div>
+						
+			<div class="fooder" style="width:100%;height:180px;background-color:black;color:white;text-align:left;">
+				<div style="padding:20px;padding-left:30px;">
+						<img id="mailme" src="mail.jpg" style="border-radius:50%; height:70px;width:100px"/>&nbsp;&nbsp;&nbsp;<img src="arrow.gif" style="top:50px;height:60px; width:40px; transform:rotate(180deg);"/><br>
+					<h3>Email:  <u style="color:red;">sonukedia00@gmail.com</u></h3>
+				<div id="chk" style="float:right;margin-top:-50px;"><h3 align="center">.......follow me......</h3><br>
+					<a href="www.facebook.com/sonukedia00"><img src="fb.jpg" style="border-radius:50%; height:50px;width:50px;"/></a><a href="www.sonukedia00@gmail.com"><img src="gm.jpg" style="border-radius:50%; height:50px;width:50px;"/></a><img src="tt.jpg" style="border-radius:50%; height:50px;width:50px;"/><a href="www.github.com/sonukedia55"><img src="gh.jpg" style="border-radius:50%; height:50px;width:50px;"/></a></div></div>
+			</div>
+	</div>
+	<div id="maill" style="background-color:blue;border-radius:7%;margin-left:-3%;height:230px;width:40%;position:fixed;opacity:0.7;z-index:5;margin-top:22%;color:white;border:solid 1px white;text-align:center;font-size:20px;">
+				<a id="close" style="height:20px;width:10px;margin-left:93%;border-radius:40%;color:white;border:solid 1px white;margin-top:1%;"> &nbsp;X  </a><br>
+				<form>
+					<input type="text" style="margin-top:1%;width:70%;background-color:black;height:30px;color:white;text-align:center;" placeholder="Your Email"/><br></br>
+					<textarea  style="width:70%;background-color:black;height:70px;color:white;text-align:center;" placeholder="Your Messages"></textarea><br><br>
+					<input id="sending" type="button" style="width:50%;height:30px;color:white;" value="SEND"/>
+				</form>
+	</div>
+</body></html>
