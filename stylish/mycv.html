@@ -12,7 +12,7 @@ $("document").ready(function(){
 				var wScroll = $(window).scrollTop();
 				$('#check').val(wScroll);
 				if(wScroll<350){$('#picup').css({'transform': 'translate(0px,'+wScroll/(-8.1)+'%)'});
-						$('#picup').css({'transform': 'translate(0px,'+wScroll/(-8.1)+'%)'});
+						$('#ppic').css({'transform': 'translate(0px,'+wScroll/(-5.1)+'%)'});
 						$("#picup2").css({'opacity' :0,'transition' : 'all 0s ease-in-out'});$('#til')
 				}else{$("#picup2").css({'opacity' :1,'transition' : 'all 0.2s ease-in-out'});}
 });});
@@ -21,7 +21,7 @@ $("document").ready(function(){
 <body>
 <div style="width:100%;">
 <img id="picup" src="3.jpg" style="width:100%;position:fixed;margin:0px;height:400px;z-index:-1;margin-top:-400px;"/>
-<img id="ppic" src="3.jpg" style="width:200px;position:fixed;margin:0px;height:200px;z-index:-1;margin-top:-100px;float:right"/></div>
+<img id="ppic" src="3.jpg" style="width:200px;position:fixed;margin:0px;height:200px;z-index:-1;margin-top:-200px;float:right;"/></div>
 <div id="picup2" style="width:100%;background-color:black;position:fixed;height:50px;margin-top:-400px;color:white;font-size:20px;">
 Hello Buddy</div>
 
