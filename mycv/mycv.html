@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+*{margin:0px;}body{font-family:"open sans",sans-serif;font:aerial}
+
+.hj5 li{list-style:none;font-size:20px;}
+.t3 img{width:20%;height:150px;margin:5%;opacity:0.8;transition:all 0.3s ease-in-out;z-index:-2;border-radius:40%;border:solid 2px white;}
+.t3 img:hover{opacity:1;transition:all 0.3s ease-in-out;border-radius:0;}
+.t4 img{height:150px;margin:4%;opacity:0.8;transition:all 0.3s ease-in-out;z-index:-2;border-radius:50%;}
+#menu{margin-left:30px;padding-top:10px;height:30px;font-size:20px;transition:all 0.3s ease-in-out;}
+#menu:hover{font-weight:bold;font-size:25px;transition:all 0.3s ease-in-out;}
+</style>
+<script  type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$("document").ready(function(){
+	$('#picup2').css({'opacity' :0},0);
+	$(window).scroll(function(){
+				var wScroll = $(window).scrollTop();
+				$('#check').val(wScroll);
+				if(wScroll<350){$('#picup').css({'transform': 'translate(0px,'+wScroll/(-8.1)+'%)'});
+						$('#ppic').css({'transform': 'translate(0px,'+wScroll/(-2.1)+'%)'});
+						$("#picup2").css({'opacity' :0,'transition' : 'all 0s ease-in-out'});$('#til')
+				}else{$("#picup2").css({'opacity' :1,'transition' : 'all 0.2s ease-in-out'});}
+});});
+</script>
+</head>
+<body bgcolor="#20A5A5">
+<div style="width:100%;">
+<img id="picup" src="back.jpg" style="width:100%;position:fixed;margin:0px;height:400px;z-index:-1;margin-top:-400px;"/>
+<img id="ppic" src="sonu.jpg" style="width:200px;position:fixed;margin:0px;height:200px;z-index:-1;margin-top:-230px;margin-left:80%;border:solid 6px white;"/></div>
+<div id="picup2" style="width:100%;background-color:#246370;position:fixed;height:50px;margin-top:-400px;color:white;font-size:20px;z-index:3;">
+	<a id="menu" style="float:left">Personal Details</a><a id="menu" style="float:left">Educational Details</a><a id="menu" style="float:left">Work Experience</a><a id="menu" style="float:left">Hobbies</a>
+	 <a align="middle" style="float:right"> <h4 style="margin-top:10px;float:left;">Sonu Kedia&nbsp;</h4> <img src="sonu.jpg" style="height:50px"/></a></div>
+
+<div id="til" style="position:absolute;font-size:50px;width:100%;margin-top:-80px;color:white;"><b>SONU KEDIA</b></div>
+<div style="width:100%;height:1500px;background-color:#EBEEEE;margin-top:400px;z-index:2;"><br>
+	<div class="t1" style="width:100%; text-align:center;font-size:20px;color:grey;">
+		<h2 align="left" style="margin-left:5%;color:#246370"><br>Personal Details</h2><br><hr color="#246370" style="width:80%;margin-left:5%;height:5px;"><br>
+		<b>Name</b>: Sonu Kumar Kedia<br><br>
+		<b>1st Year BTech</b><br><br>
+		<b>College</b>: IIT Ropar<br><br>
+		<b>City</b>: Ropar, Punjab<br><bR>
+		<b>Email</b>: sonukedia00@gmail.com<br><br>
+		<b>Birth</b>: July, 1999<br><br>
+	</div>
+	<h2 align="left" style="margin-left:5%;color:#246370"><br>Educational Details</h2><br><hr color="#246370" style="width:80%;margin-left:5%;height:5px;"><br>
+	<div class="t2" style="margin-top:-4%;background-image:url(t2.jpg);background-size:100% 100%;background-position:top center;background-repeat:repeat;background-attachment:fixed;width:100%;height:400px;" >
+	
+					<div style="text-align:right;z-index:2;">
+						
+									<ul class="hj5" style="margin-top:50px;color:white;margin-right:10%;"></br><br><br><br>
+										<li style="color:#C1ECF5;font-size:25px;"><b><u>Bachelor in Technology &nbsp;&nbsp;&nbsp;</u></b></li><br>
+										<li><b>College</b>: IIT Ropar</li></br>
+										<li><b>Branch</b>: Mechanical Engineering</li></br>
+										<li><b>1st year</b></li>
+									</ul>		
+			</div></div><br>
+	<div class="t3" style="margin-top:5%;background-image:url(t3.jpg);background-size:100% 100%;background-position:top center;background-repeat:repeat;background-attachment:fixed;width:100%;height:400px;" >
+	
+	<h2 align="left" style="margin-left:5%;color:#246370"><br>Work Experience</h2><br><hr color="#246370" style="width:80%;margin-left:5%;height:5px;"><br>
+					<div style="text-align:right;z-index:2;">
+						
+									<a href="http://www.hellobuddy.esy.es"><img src="hello.png" /></a> <a href="http://www.woowfoods.net16.net"><img src="wow.png"/></a><a href="http://www.advitiya.in"> <img src="advitiya.png"/>	</a>	
+			</div></div>
+	<div class="t4" style="margin-top:3%;background-image:url(t4.png);background-size:100% 100%;background-position:top center;background-repeat:repeat;background-attachment:fixed;width:100%;height:400px;" >
+	
+	<h2 align="left" style="margin-left:5%;color:#F2BF22"><br>Hobbies</h2><br><hr color="#F2BF22" style="width:80%;margin-left:5%;height:5px;"><br>
+					<div style="text-align:right;z-index:2;">
+						
+										<img src="football.jpg" /><img src="computer.jpg" /><img src="piano.jpg" /><img src="photo.jpg" /><img src="art.jpg" />
+			</div></div>
+
+
+
+
+</div>
+</body>
+</html>
