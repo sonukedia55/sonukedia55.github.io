@@ -20,8 +20,12 @@ $("document").ready(function(){
 				$('#check').val(wScroll);
 				if(wScroll<350){$('#picup').css({'transform': 'translate(0px,'+wScroll/(-8.1)+'%)'});
 						$('#ppic').css({'transform': 'translate(0px,'+wScroll/(-2.1)+'%)'});
-						$("#picup2").css({'opacity' :0,'transition' : 'all 0s ease-in-out'});$('#til')
-				}else{$("#picup2").css({'opacity' :1,'transition' : 'all 0.2s ease-in-out'});}
+						$("#picup2").css({'opacity' :0,'transition' : 'all 0s ease-in-out'});
+						$("#picup").css({'opacity' :1,'transition' : 'all 0s ease-in-out'});
+						$("#ppic").css({'opacity' :1,'transition' : 'all 0s ease-in-out'});$('#til')
+				}else{$("#picup2").css({'opacity' :1,'transition' : 'all 0.2s ease-in-out'});
+				     $("#picup").css({'opacity' :0,'transition' : 'all 0s ease-in-out'});
+				     $("#ppic").css({'opacity' :0,'transition' : 'all 0s ease-in-out'});}
 });});
 </script>
 </head>
