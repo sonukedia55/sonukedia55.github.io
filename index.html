@@ -15,7 +15,34 @@
 <script  type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
 $("document").ready(function(){
-	$('#picup2').css({'opacity' :0},0);
+			$('#picup2').css({'opacity' :0},0);
+			
+			$(".m1").click(function() {
+			$('html, body').animate({
+				scrollTop: $(".t1").offset().top
+			}, 1000);
+		});
+		$(".m2").click(function() {
+			$('html, body').animate({
+				scrollTop: $(".t22").offset().top
+			}, 1000);
+		});
+		$(".m3").click(function() {
+			$('html, body').animate({
+				scrollTop: $(".t32").offset().top
+			}, 1000);
+		});
+		$(".m4").click(function() {
+			$('html, body').animate({
+				scrollTop: $(".t4").offset().top
+			}, 1000);
+		});
+		$(".m5").click(function() {
+			$('html, body').animate({
+				scrollTop: $(".t52").offset().top
+			}, 1000);
+		});
+	
 	$(window).scroll(function(){
 				var wScroll = $(window).scrollTop();
 				$('#check').val(wScroll);
@@ -28,6 +55,7 @@ $("document").ready(function(){
 				     $("#picup").css({'opacity' :0,'transition' : 'all 0s ease-in-out'});
 				     $("#ppic").css({'opacity' :0,'transition' : 'all 0s ease-in-out'});}
 });});
+
 </script>
 </head>
 <body bgcolor="#20A5A5">
@@ -35,7 +63,7 @@ $("document").ready(function(){
 	<img id="picup" src="back.jpg" style="width:100%;position:fixed;margin:0px;height:400px;z-index:-1;margin-top:-400px;"/>
 	<img id="ppic" src="sonu.jpg" style="width:200px;position:fixed;margin:0px;height:200px;z-index:-1;margin-top:-230px;margin-left:80%;border:solid 6px white;"/></div>
 	<div id="picup2" style="width:100%;background-color:#246370;position:fixed;height:50px;margin-top:-400px;color:white;font-size:20px;z-index:3;">
-		<a id="menu" style="float:left">Personal Details</a><a id="menu" style="float:left">Educational Details</a><a id="menu" style="float:left">Work Experience</a><a id="menu" style="float:left">Hobbies</a>
+		<a id="menu" class="m1" style="float:left">Personal Details</a><a class="m2" id="menu" style="float:left">Educational Details</a><a class="m3" id="menu" style="float:left">Work Experience</a><a class="m5" id="menu" style="float:left">Skills</a><a class="m4" id="menu" style="float:left">Hobbies</a>
 		 <a align="middle" style="float:right"> <h4 style="margin-top:10px;float:left;">Sonu Kedia&nbsp;</h4> <img src="sonu.jpg" style="height:50px"/></a></div>
 
 	<div id="til" style="position:absolute;font-size:50px;width:100%;margin-top:-80px;color:white;"><b>SONU KEDIA</b></div>
@@ -49,7 +77,7 @@ $("document").ready(function(){
 			<b>Email</b>: sonukedia00@gmail.com<br><br>
 			<b>Birth</b>: July, 1999<br><br>
 	</div>
-	<h2 align="left" style="margin-left:5%;color:#246370"><br>Educational Details</h2><br><hr color="#246370" style="width:80%;margin-left:5%;height:5px;"><br>
+	<h2 class="t22" align="left" style="margin-left:5%;color:#246370"><br>Educational Details</h2><br><hr color="#246370" style="width:80%;margin-left:5%;height:5px;"><br>
 	<div class="t2" style="margin-top:-4%;background-image:url(t2.jpg);background-size:100% 100%;background-position:top center;background-repeat:repeat;background-attachment:fixed;width:100%;height:400px;" >
 	
 	<div style="text-align:right;z-index:2;">
@@ -63,13 +91,13 @@ $("document").ready(function(){
 	</div></div><br>
 	<div  style="margin-top:5%;background-image:url(t3.jpg);background-size:100% 100%;background-position:top center;background-repeat:repeat;background-attachment:fixed;width:100%;min-height:400px;" >
 	
-	<h2 align="left" style="margin-left:5%;color:#246370"><br>Work Experience</h2><br><hr color="#246370" style="width:80%;margin-left:5%;height:5px;"><br>
+	<h2 class="t32" align="left" style="margin-left:5%;color:#246370"><br>Work Experience</h2><br><hr color="#246370" style="width:80%;margin-left:5%;height:5px;"><br>
 	<div class="t3" style="text-align:right;z-index:2;">
 						
 				<a href="http://www.hellobuddy.esy.es"><img src="hello.png" /></a> <a href="http://www.woowfoods.net16.net"><img src="wow.png"/></a><a href="http://www.advitiya.in"> <img src="advitiya.png"/>	</a>	
 	</div>
 	<br>
-	<h2 align="left" style="margin-left:5%;color:#F2BF22"><br>Skills</h2><br><hr color="#F2BF22" style="width:80%;margin-left:5%;height:5px;"><br>
+	<h2 class="t52" align="left" style="margin-left:5%;color:#F2BF22"><br>Skills</h2><br><hr color="#F2BF22" style="width:80%;margin-left:5%;height:5px;"><br>
 	<div class="t5" style="text-align:center;z-index:2;">
 						
 					<img src="html.png" /><img src="java.png" /><img src="php.png" /><img src="python.png" /><img src="android.png" /><img src="photoshop.png" /><img src="solid.png" />
