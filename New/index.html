@@ -9,7 +9,7 @@
     }
     .nav{
       width: 30%;
-      position: absolute;
+      position: fixed;
       background-color: #704c9d;
       height: 100%;
       float: left;
@@ -29,6 +29,38 @@
       height: 150px;
       width: 150px;
     }
+    .navbar{
+      margin-left: 10%;
+      width: 85%;
+      margin-top: 50px;
+      background-color: #8a5ac5;
+      min-height:300px;
+      border-radius: 5% 0% 0% 5%;
+      padding-left: 5%;
+    }
+    #navlink{
+      font-size: 25px;
+      color: #aeaeae;
+      margin-left: 14%;
+      transition:all 0.5s ease-in-out;
+    }
+    #navlink:hover{
+      color:#411840;
+      cursor: pointer;
+      text-transform: capitalize;
+      font-size: 35px;
+      font-weight: bold;
+      transition:all 0.5s ease-in-out;
+    }
+    .content{
+      width:70%;
+      margin-left: 30%;
+
+    }
+    .inner{
+      background-color: grey;
+      min-height: 2000px;
+    }
     </style>
   </head>
   <body>
@@ -36,8 +68,23 @@
       <div class="intro">
         <img src="sonu.jpg" id="myimg"/><br>
         <h1>Sonu Kedia</h1>
+        <a style="color:#e4e4e4;margin-top:5px;font-size:14px;" >(sonukedia00@gmail.com)</a>
+      </div>
+      <div class="navbar">
+        <br><br>
+          <a id="navlink">MySelf</a><br><br>
+          <a id="navlink">Achivements</a><br><br>
+          <a id="navlink">Academics</a><br><br>
+          <a id="navlink">Skills</a><br><br>
+          <a id="navlink">Hobbies</a><br><br>
+
       </div>
 
+    </div>
+    <div class="content">
+      <div class="inner">
+        a
+      </div>
     </div>
   </body>
 </html>
