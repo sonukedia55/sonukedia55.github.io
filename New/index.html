@@ -72,10 +72,55 @@
       width: 70%;
       float: left;
       min-height: 300px;
+      margin-top: 140px;
+      font-size: 15px;
+      color: #767676;
+      padding-left: 15%;
+    }
+    .achiv2{
+      width: 70%;
+      float: left;
+      min-height: 300px;
       margin-top: 100px;
       font-size: 15px;
       color: #767676;
       padding-left: 20%;
+    }
+    #acimg{
+      height: 140px;
+      width: 190px;
+    }
+    #imgleft{
+      text-align: left;
+      padding: 30px;
+      width: 100%;
+      float: left;
+      border-radius: 2%;
+
+      margin-top: 40px;
+      background-color: #E3E3E3;
+    }
+    #imgright{
+      padding: 30px;
+      text-align: right;
+      width: 100%;
+      float: left;
+      border-radius: 2%;
+      border: solid 8px #924DA9;
+
+
+      margin-top: 40px;
+    }
+    .imgsctn{
+      width: 30%;
+      float: left;
+    }
+    .contsctn{
+      width: 60%;
+      margin-left: 10%;
+      float: left;
+      color: #787878;
+      line-height: 25px;
     }
     </style>
 
@@ -92,7 +137,7 @@ $("document").ready(function(){
 
     $(window).scroll(function(){
 				var wScroll = $(window).scrollTop();
-        $('#sc').val(wScroll);
+        //$('#sc').val(wScroll);
 
         if(wScroll==100){
           $('html, body').animate({
@@ -140,14 +185,13 @@ $("document").ready(function(){
 
     </div>
     <div class="content">
-      <input style="position:fixed;" type="text" id="sc"/>
       <div class="about">
         <br><br><img src="quote.png" style="height:60px;width:60px;transform:translate(-100px,40px);" draggable="false"/>
         <p style="transfor:translateX(40px);line-height:30px;">
           <b style="font-size:25px;">H</b>ey,
            You have just successfully entered my site.
             In the welcome of your success i wanna introduce my self,
-             I am Sonu Kumar Kedia, A <b>B.Tech</b> Student of <a style="text-decoration:none;font-weight:bold;"href="http://www.iitrpr.ac.in">Indian Institude of Techonology Ropar</a>, Punjab.
+             I am Sonu Kumar Kedia, A 2nd year <b>B.Tech</b> Student of <a style="text-decoration:none;font-weight:bold;"href="http://www.iitrpr.ac.in">Indian Institude of Techonology Ropar</a>, Punjab.
               I don't like to talk much as i beleive in doing, because my works talks. I have a great interest in <b>Development of Android and Website</b> where
               i can work for 24 hours. <br><br>
               <b>Email :</b> sonukedia00@gmail.com<br>
@@ -158,15 +202,56 @@ $("document").ready(function(){
          </p>
       </div>
       <div class="achiv">
-        <h2>Achivements</h2><br>
-        <p style="transfor:translateX(40px);line-height:30px;">
-          <b style="font-size:25px;">H</b>ey,
-           You have just successfully entered my site.
-            In the welcome of your success i wanna introduce my self,
-             I am Sonu Kumar Kedia, A <b>B.Tech</b> Student of <a style="text-decoration:none;font-weight:bold;"href="http://www.iitrpr.ac.in">Indian Institude of Techonology Ropar</a>, Punjab.
-              I don't like to talk much as i beleive in doing, because my works talks. I have a great interest in <b>Development of Android and Website</b> where
-              i can work for 24 hours. <br><br>
-            </p>
+        <h2 style="transform:translateX(-30px);">Achivements</h2><br>
+
+        <div id='imgleft'>
+          <div class="imgsctn">
+            <img src="img/sa.jpg" id="acimg"/>
+          </div>
+          <div class="contsctn">
+
+              <h3 style="color:#924DA9;">Student Affairs IIT Ropar</h3>
+              <br>
+                A webiste linked to IIT Ropar Main where all the details of cultural, sports, hotels affairs are presented.
+          </div>
+
+        </div>
+
+
+        <div id="imgright">
+          <div class="imgsctn" style="float:right;">
+            <img src="img/advitiya.png" id="acimg" />
+          </div>
+          <div class="contsctn" style="float:left;margin-left:-5px;">
+            <h3 style="color:#924DA9;">Advitiya 2017, IIT Ropar</h3>
+            <br>
+                A webiste linked to IIT Ropar Main where all the details of cultural, sports, hotels affairs are presented.
+          </div>
+        </div>
+
+
+        <div id='imgleft'>
+          <div class="imgsctn">
+            <img src="img/hello.png" id="acimg"/>
+          </div>
+          <div class="contsctn">
+            <h3 style="color:#924DA9;">A Social Media Website</h3>
+            <br>
+                A webiste linked to IIT Ropar Main where all the details of cultural, sports, hotels affairs are presented.
+        </div>
+      </div>
+        <div id="imgright">
+          <div class="imgsctn" style="float:right;">
+            <img src="img/wow.png" id="acimg" />
+          </div>
+          <div class="contsctn" style="float:left;margin-left:-5px;">
+            <h3 style="color:#924DA9;">Woow Foods</h3>
+            <br>
+                A webiste linked to IIT Ropar Main where all the details of cultural, sports, hotels affairs are presented.
+          </div>
+        </div>
+
+
       </div>
 
       <div class="achiv2">
