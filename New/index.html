@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <htmL>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Kurale|Revalia" rel="stylesheet">
     <style>
     *{
       margin:0px;
       width: 100%;
-      font-family: sans-serif;
+
+      font-family: 'Kurale', serif;
     }
     .nav{
       width: 30%;
@@ -31,24 +33,31 @@
     }
     .navbar{
       margin-left: 10%;
-      width: 85%;
-      margin-top: 50px;
+      width: 83%;
+      padding-right: 7%;
+      margin-top: 30px;
       background-color: #8a5ac5;
       min-height:300px;
       border-radius: 5% 0% 0% 5%;
-      padding-left: 5%;
+      line-height: 40px;
+      text-align: right;
+
     }
     #navlink{
+
       font-size: 25px;
       color: #aeaeae;
       margin-left: 14%;
       transition:all 0.5s ease-in-out;
+      font-family: 'Revalia', cursive;
+      padding: 5px 15px 5px 15px;
+      border-radius: 5%;
     }
     #navlink:hover{
       color:#411840;
       cursor: pointer;
       text-transform: capitalize;
-      font-size: 35px;
+      font-size: 30px;
       font-weight: bold;
       transition:all 0.5s ease-in-out;
       text-shadow: white 2px 2px 10px;
@@ -190,6 +199,22 @@ $("document").ready(function(){
 
 
         }
+    if(wScroll<300){
+        $('.ms').css({'background-color': '#F8F9F9'}, 200);
+        $('.ach').css({'background-color': '#8a5ac5'}, 200);
+        $('.ac').css({'background-color': '#8a5ac5'}, 200);
+    }
+
+    if(wScroll>300 && wScroll<1400){
+      $('.ach').css({'background-color': '#F8F9F9'}, 200);
+      $('.ms').css({'background-color': '#8a5ac5'}, 200);
+      $('.ac').css({'background-color': '#8a5ac5'}, 200);
+}
+    if(wScroll>1400 && wScroll<1700){
+  $('.ac').css({'background-color': '#F8F9F9'}, 200);
+  $('.ms').css({'background-color': '#8a5ac5'}, 200);
+  $('.ach').css({'background-color': '#8a5ac5'}, 200);
+}
 
 
       });
@@ -206,17 +231,18 @@ $("document").ready(function(){
         <a style="color:#e4e4e4;margin-top:5px;font-size:14px;" >(sonukedia00@gmail.com)</a>
       </div>
       <div class="navbar">
-        <br><br>
-          <a id="navlink">MySelf</a><br><br>
-          <a id="navlink">Acheivements</a><br><br>
-          <a id="navlink">Academics</a><br><br>
-          <a id="navlink">Skills</a><br><br>
-          <a id="navlink">Hobbies</a><br><br>
+        <br>
+          <a id="navlink" class="ms">MySelf</a><br>
+          <a id="navlink" class="ach">Acheivements</a><br>
+          <a id="navlink" class="ac">Academics</a><br>
+          <a id="navlink" class="sk">Skills</a><br>
+          <a id="navlink" class="hb">Hobbies</a><br><br>
 
       </div>
 
     </div>
     <div class="content">
+
       <div class="about">
         <br><br><img src="quote.png" style="height:60px;width:60px;transform:translate(-100px,40px);" draggable="false"/>
         <p style="transfor:translateX(40px);line-height:30px;">
