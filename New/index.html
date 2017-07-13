@@ -105,6 +105,22 @@
       padding-left: 10%;
       text-align: center;
     }
+    .hobbies{
+      width: 80%;
+      float: left;
+      min-height: 300px;
+      margin-top: 250px;
+      font-size: 15px;
+      color: #767676;
+      padding-left: 10%;
+      text-align: center;
+    }
+    .hobbies img{
+      width:150px;
+      height: 150px;
+      margin: 40px;
+
+    }
     .skills img{
       width:150px;
       height: 150px;
@@ -203,18 +219,28 @@ $("document").ready(function(){
         $('.ms').css({'background-color': '#F8F9F9'}, 200);
         $('.ach').css({'background-color': '#8a5ac5'}, 200);
         $('.ac').css({'background-color': '#8a5ac5'}, 200);
+        $('.sk').css({'background-color': '#8a5ac5'}, 200);
+
     }
 
     if(wScroll>300 && wScroll<1400){
       $('.ach').css({'background-color': '#F8F9F9'}, 200);
       $('.ms').css({'background-color': '#8a5ac5'}, 200);
       $('.ac').css({'background-color': '#8a5ac5'}, 200);
+      $('.sk').css({'background-color': '#8a5ac5'}, 200);
 }
-    if(wScroll>1400 && wScroll<1700){
-  $('.ac').css({'background-color': '#F8F9F9'}, 200);
-  $('.ms').css({'background-color': '#8a5ac5'}, 200);
-  $('.ach').css({'background-color': '#8a5ac5'}, 200);
+    if(wScroll>1400 && wScroll<2100){
+      $('.ac').css({'background-color': '#F8F9F9'}, 200);
+      $('.ms').css({'background-color': '#8a5ac5'}, 200);
+      $('.ach').css({'background-color': '#8a5ac5'}, 200);
+      $('.sk').css({'background-color': '#8a5ac5'}, 200);
 }
+    if(wScroll>2100 && wScroll<2200){
+      $('.sk').css({'background-color': '#F8F9F9'}, 200);
+      $('.ms').css({'background-color': '#8a5ac5'}, 200);
+      $('.ach').css({'background-color': '#8a5ac5'}, 200);
+      $('.ac').css({'background-color': '#8a5ac5'}, 200);
+    }
 
 
       });
@@ -252,9 +278,10 @@ $("document").ready(function(){
              I am Sonu Kumar Kedia, A 2nd year <b>B.Tech</b> Student of <a style="text-decoration:none;font-weight:bold;"href="http://www.iitrpr.ac.in">Indian Institude of Techonology Ropar</a>, Punjab.
               I don't like to talk much as i beleive in doing, because my works talks. I have a great interest in <b>Development of Android and Website</b> where
               i can work for 24 hours. <br><br>
-              <b>Email :</b> sonukedia00@gmail.com<br>
-              <b>Github :</b> http://www.github.com/sonukedia55<br>
-              <b>Facebook :</b> http://www.facebook.com/sonukedia00 <br><img src="quote2.png" draggable="false" style="float:right;height:60px;width:60px;transform:translate(-150px,-30px);"/>
+              <b>Email :</b><a style="text-decoration:none;font-weight:bold;"href="http://sonukedia00@gmail.com"> sonukedia00@gmail.com</a><br>
+              <b>Github :</b><a style="text-decoration:none;font-weight:bold;"href="http://www.github.com/sonukedia55"> http://www.github.com/sonukedia55</a><br>
+              <b>Facebook :</b><a style="text-decoration:none;font-weight:bold;"href=" http://www.facebook.com/sonukedia00"> http://www.facebook.com/sonukedia00 </a><br>
+              <img src="quote2.png" draggable="false" style="float:right;height:60px;width:60px;transform:translate(-150px,-30px);"/>
 
 
          </p>
@@ -346,6 +373,16 @@ $("document").ready(function(){
               <img src="skills/dj.png" draggable="false"/>
               <img src="skills/ae.png" draggable="false" />
           </div>
+
+          <div class="hobbies">
+            <h1 style="transform:translateX(-200px);float:left;color:grey"><u style="color:grey">Hobbies</u></h1><br><br>
+
+                <img src="hobbies/art.jpg" draggable="false"/>
+                <img src="hobbies/computer.jpg" draggable="false" />
+                <img src="hobbies/guitar.png" draggable="false"/>
+                <img src="hobbies/volleyball.png" draggable="false"/>
+                <img src="hobbies/outing.png" draggable="false"/>
+            </div>
     </div>
   </body>
 </html>
