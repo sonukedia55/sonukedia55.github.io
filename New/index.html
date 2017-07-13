@@ -108,12 +108,14 @@
     .hobbies{
       width: 80%;
       float: left;
-      min-height: 300px;
-      margin-top: 250px;
+      min-height: 350px;
+      margin-top: 180px;
       font-size: 15px;
       color: #767676;
       padding-left: 10%;
       text-align: center;
+      margin-bottom: 100px;
+
     }
     .hobbies img{
       width:150px;
@@ -220,6 +222,7 @@ $("document").ready(function(){
         $('.ach').css({'background-color': '#8a5ac5'}, 200);
         $('.ac').css({'background-color': '#8a5ac5'}, 200);
         $('.sk').css({'background-color': '#8a5ac5'}, 200);
+        $('.hb').css({'background-color': '#8a5ac5'}, 200);
 
     }
 
@@ -228,18 +231,28 @@ $("document").ready(function(){
       $('.ms').css({'background-color': '#8a5ac5'}, 200);
       $('.ac').css({'background-color': '#8a5ac5'}, 200);
       $('.sk').css({'background-color': '#8a5ac5'}, 200);
+      $('.hb').css({'background-color': '#8a5ac5'}, 200);
 }
     if(wScroll>1400 && wScroll<2100){
       $('.ac').css({'background-color': '#F8F9F9'}, 200);
       $('.ms').css({'background-color': '#8a5ac5'}, 200);
       $('.ach').css({'background-color': '#8a5ac5'}, 200);
       $('.sk').css({'background-color': '#8a5ac5'}, 200);
+      $('.hb').css({'background-color': '#8a5ac5'}, 200);
 }
     if(wScroll>2100 && wScroll<2200){
       $('.sk').css({'background-color': '#F8F9F9'}, 200);
       $('.ms').css({'background-color': '#8a5ac5'}, 200);
       $('.ach').css({'background-color': '#8a5ac5'}, 200);
       $('.ac').css({'background-color': '#8a5ac5'}, 200);
+      $('.hb').css({'background-color': '#8a5ac5'}, 200);
+    }
+    if(wScroll>2500 && wScroll<3000){
+      $('.hb').css({'background-color': '#F8F9F9'}, 200);
+      $('.ms').css({'background-color': '#8a5ac5'}, 200);
+      $('.ach').css({'background-color': '#8a5ac5'}, 200);
+      $('.ac').css({'background-color': '#8a5ac5'}, 200);
+      $('.sk').css({'background-color': '#8a5ac5'}, 200);
     }
 
 
@@ -375,11 +388,11 @@ $("document").ready(function(){
           </div>
 
           <div class="hobbies">
-            <h1 style="transform:translateX(-200px);float:left;color:grey"><u style="color:grey">Hobbies</u></h1><br><br>
+            <h1 style="transform:translateX(-250px);float:left;color:grey"><u style="color:grey">Hobbies</u></h1><br><br>
 
-                <img src="hobbies/art.jpg" draggable="false"/>
-                <img src="hobbies/computer.jpg" draggable="false" />
-                <img src="hobbies/guitar.png" draggable="false"/>
+                <img src="hobbies/art.png" draggable="false"/>
+                <img src="hobbies/computer.png" draggable="false" />
+                <img src="hobbies/hmusic.png" draggable="false"/>
                 <img src="hobbies/volleyball.png" draggable="false"/>
                 <img src="hobbies/outing.png" draggable="false"/>
             </div>
