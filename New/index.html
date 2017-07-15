@@ -45,6 +45,10 @@
       text-align: right;
 
     }
+    .navbarmob{
+      display: none;
+
+    }
     #navlink{
 
       font-size: 25px;
@@ -214,6 +218,10 @@
   	animation:opac 12s infinite;
   	animation-iterator_count:infinite;
   }
+  #menume{
+    position: absolute;
+    display: none;
+}
   #mailme:hover{
     cursor: pointer;
 
@@ -340,6 +348,29 @@ $("document").ready(function(){
   $('.sendme').hide();
   $('#hearting').hide();
 
+  $('.navbarmob').hide();
+  $('.navbarmob').css({'transform': ' translate(-400px,0)','transition' : 'all 0.0s ease-in-out'});
+
+  isopen=0;
+  did=0;
+
+  $('#menume').click(function(){
+
+    did=0;
+    if(isopen==1&&did==0){
+        $('.navbarmob').css({'transform': ' translate(-400px,0)','transition' : 'all 0.3s ease-in-out'});
+        $('.navbarmob').fadeOut(400);
+        isopen=0;
+        did=1;
+    }
+    if(isopen==0&&did==0){
+        $('.navbarmob').fadeIn();
+        $('.navbarmob').css({'transform': ' translate(0px,0)','transition' : 'all 0.3s ease-in-out'});
+        isopen=1;
+        did=1;
+    }
+  });
+
     $('#hearting2').css({'transform': ' translate(200px,0)','transition' : 'all 0.0s ease-in-out'});
     $('#hearting2').hide();
   $('#mailme').mouseover(function(){
@@ -452,8 +483,18 @@ $("document").ready(function(){
   </head>
   <body>
     <img src="mailing.png" id="mailme"/>
+    <img src="menu.png" id="menume"/>
     <img src="heart.png" id="hearting"/>
     <a  id="hearting2">Thanks, Leave a message Click me!</a>
+    <div class="navbarmob">
+      <br>
+        <a id="navlink2" class="ms">MySelf</a><br>
+        <a id="navlink2" class="ach">Acheivements</a><br>
+        <a id="navlink2" class="ac">Academics</a><br>
+        <a id="navlink2" class="sk">Skills</a><br>
+        <a id="navlink2" class="hb">Hobbies</a><br><br>
+
+    </div>
 
     <div class="sendme">
       <form id="myform">
