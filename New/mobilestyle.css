@@ -1,0 +1,108 @@
+@media screen and (max-width:500px){
+
+  .intro2{
+    text-align: center;
+    color: white;
+    width: 100%;
+    padding-bottom: 30px;
+    background-color: #704c9d;
+    display: block;
+  }
+  .nav{
+    display: none;
+  }
+
+  .content{
+    background-color: white;
+    width:100%;
+    font-size: 12px;
+    margin: 0%;
+}
+
+    #hearting{
+
+       height:20px;
+        width:4%;
+        z-index:2200;
+        float:right;
+        margin-left:93.5%;
+
+    }
+    #hearting2{
+
+        width:24%;
+        padding: 0.5%;
+        margin-left:75%;
+        font-size: 10px;
+
+
+    }
+
+    #mailme{
+
+      height:40px;
+      border-radius: 50%;
+      border: solid 0.5px white;
+      width:10%;
+      margin-left:85%;
+      margin-top:10px;
+
+  }
+  #q1{
+  transform:translate(-80px,40px);
+  }
+  #q2{
+    transform:translate(0,0);
+  }
+  .about{
+    font-size: 12px;
+  }
+  .achiv{
+    width: 95%;
+    font-size: 12px;
+    padding-left: 2%;
+  }
+
+  #acimg{
+    width: 100%;
+    height:auto;
+    border-radius: 4% 4% 0 0;
+  }
+  #imgleft{
+    padding: 0px;
+  }
+  #imgright{
+    padding: 0px;
+  }
+  .imgsctn{
+    width: 100%;
+    float: left;
+  }
+  .contsctn{
+    width: 90%;
+    float: left;
+  }
+  #colpng{
+    width:10%;
+  }
+  #colcont{
+    width:80%;
+  }
+  #skillh{
+    transform:translateX(0px);
+  }
+  #hobh{
+    transform:translateX(0px);
+  }
+  #achh{
+    transform:translateX(0px);
+  }
+  .sendme{
+    width: 80%;
+    padding: 1% 2%;
+    margin-left: 8%;
+
+  }
+
+
+}
