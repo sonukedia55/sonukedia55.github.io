@@ -442,6 +442,33 @@ $("document").ready(function(){
             });
 
 
+    $(".ms2").click(function() {
+                $('html, body').animate({
+                  scrollTop: $(".about").offset().top
+                }, 1000);
+              });
+  $(".ach2").click(function() {
+                  $('html, body').animate({
+                    scrollTop: $(".achiv").offset().top
+                  }, 1000);
+                });
+    $(".ac2").click(function() {
+                    $('html, body').animate({
+                      scrollTop: $(".achiv2").offset().top
+                    }, 1000);
+                  });
+    $(".sk2").click(function() {
+                      $('html, body').animate({
+                        scrollTop: $(".skills").offset().top
+                      }, 1000);
+                    });
+    $(".hb2").click(function() {
+                        $('html, body').animate({
+                          scrollTop: $(".hobbies").offset().top
+                        }, 1000);
+                      });
+
+
 
   show=2;
 
@@ -452,7 +479,7 @@ $("document").ready(function(){
 if(isopen==0){
 
 
-    if(wScroll<300){
+    if(wScroll< $(".achiv").offset().top-100){
         $('.ms').css({'background-color': '#F8F9F9'}, 200);
         $('.ach').css({'background-color': '#8a5ac5'}, 200);
         $('.ac').css({'background-color': '#8a5ac5'}, 200);
@@ -461,28 +488,28 @@ if(isopen==0){
 
     }
 
-    if(wScroll>300 && wScroll<1400){
+    if(wScroll> $(".achiv").offset().top-100 && wScroll< $(".achiv2").offset().top-100){
       $('.ach').css({'background-color': '#F8F9F9'}, 200);
       $('.ms').css({'background-color': '#8a5ac5'}, 200);
       $('.ac').css({'background-color': '#8a5ac5'}, 200);
       $('.sk').css({'background-color': '#8a5ac5'}, 200);
       $('.hb').css({'background-color': '#8a5ac5'}, 200);
 }
-    if(wScroll>1400 && wScroll<2100){
+    if(wScroll> $(".achiv2").offset().top-100 && wScroll< $(".skills").offset().top-100){
       $('.ac').css({'background-color': '#F8F9F9'}, 200);
       $('.ms').css({'background-color': '#8a5ac5'}, 200);
       $('.ach').css({'background-color': '#8a5ac5'}, 200);
       $('.sk').css({'background-color': '#8a5ac5'}, 200);
       $('.hb').css({'background-color': '#8a5ac5'}, 200);
 }
-    if(wScroll>2100 && wScroll<3000){
+    if(wScroll> $(".skills").offset().top-100 && wScroll< $(".hobbies").offset().top-100){
       $('.sk').css({'background-color': '#F8F9F9'}, 200);
       $('.ms').css({'background-color': '#8a5ac5'}, 200);
       $('.ach').css({'background-color': '#8a5ac5'}, 200);
       $('.ac').css({'background-color': '#8a5ac5'}, 200);
       $('.hb').css({'background-color': '#8a5ac5'}, 200);
     }
-    if(wScroll>3000 && wScroll<3100){
+    if(wScroll>$(".hobbies").offset().top-100){
       $('.hb').css({'background-color': '#F8F9F9'}, 200);
       $('.ms').css({'background-color': '#8a5ac5'}, 200);
       $('.ach').css({'background-color': '#8a5ac5'}, 200);
@@ -499,7 +526,7 @@ if(isopen==0){
 </script>
   </head>
   <body>
-    <div class="loading" style="width:40%;height:100%;background-color:#3a539b;position:fixed;z-index:2000;text-align:center;padding: 17% 30%;">
+    <div class="loading" style="width:100%;height:100%;background-color:#3a539b;position:fixed;z-index:2000;text-align:center;padding-top:200px;">
       <img src="loading.gif" align="center" style="width:300px;" />
     </div>
     <img src="mailing.png" id="mailme"/>
@@ -508,11 +535,11 @@ if(isopen==0){
     <a  id="hearting2">Thanks, Leave a message Click me!</a>
     <div class="navbarmob">
       <br>
-        <a id="navlink2" onclick="hideit()" class="ms">MySelf</a><br>
-        <a id="navlink2" onclick="hideit()" class="ach">Acheivements</a><br>
-        <a id="navlink2" onclick="hideit()" class="ac">Academics</a><br>
-        <a id="navlink2" onclick="hideit()" class="sk">Skills</a><br>
-        <a id="navlink2" onclick="hideit()" class="hb">Hobbies</a><br><br>
+        <a id="navlink2" onclick="hideit()" class="ms2">MySelf</a><br>
+        <a id="navlink2" onclick="hideit()" class="ach2">Acheivements</a><br>
+        <a id="navlink2" onclick="hideit()" class="ac2">Academics</a><br>
+        <a id="navlink2" onclick="hideit()" class="sk2">Skills</a><br>
+        <a id="navlink2" onclick="hideit()" class="hb2">Hobbies</a><br><br>
 
     </div>
 
