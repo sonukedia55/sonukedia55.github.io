@@ -342,6 +342,7 @@
 <link href="mobilestyle.css" rel="stylesheet"/>
 <script  type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
+
 $("document").ready(function(){
 
   var show=1;
@@ -354,8 +355,14 @@ $("document").ready(function(){
   isopen=0;
   did=0;
 
-  $('#menume').click(function(){
+  $('.navbarmob').click(function(){
 
+    $('.navbarmob').css({'transform': ' translate(-400px,0)','transition' : 'all 0.3s ease-in-out'});
+    $('.navbarmob').fadeOut(400);
+    isopen=0;
+  });
+
+  $('#menume').click(function(){
     did=0;
     if(isopen==1&&did==0){
         $('.navbarmob').css({'transform': ' translate(-400px,0)','transition' : 'all 0.3s ease-in-out'});
@@ -435,6 +442,8 @@ $("document").ready(function(){
 				var wScroll = $(window).scrollTop();
         //$('#sc').val(wScroll);
 
+if(isopen==0){
+
 
     if(wScroll<300){
         $('.ms').css({'background-color': '#F8F9F9'}, 200);
@@ -473,6 +482,7 @@ $("document").ready(function(){
       $('.ac').css({'background-color': '#8a5ac5'}, 200);
       $('.sk').css({'background-color': '#8a5ac5'}, 200);
     }
+  }
 
 
       });
@@ -488,11 +498,11 @@ $("document").ready(function(){
     <a  id="hearting2">Thanks, Leave a message Click me!</a>
     <div class="navbarmob">
       <br>
-        <a id="navlink2" class="ms">MySelf</a><br>
-        <a id="navlink2" class="ach">Acheivements</a><br>
-        <a id="navlink2" class="ac">Academics</a><br>
-        <a id="navlink2" class="sk">Skills</a><br>
-        <a id="navlink2" class="hb">Hobbies</a><br><br>
+        <a id="navlink2" onclick="hideit()" class="ms">MySelf</a><br>
+        <a id="navlink2" onclick="hideit()" class="ach">Acheivements</a><br>
+        <a id="navlink2" onclick="hideit()" class="ac">Academics</a><br>
+        <a id="navlink2" onclick="hideit()" class="sk">Skills</a><br>
+        <a id="navlink2" onclick="hideit()" class="hb">Hobbies</a><br><br>
 
     </div>
 
