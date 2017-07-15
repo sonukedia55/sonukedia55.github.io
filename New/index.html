@@ -345,6 +345,8 @@
 
 $("document").ready(function(){
 
+  $('.loading').fadeOut();
+
   var show=1;
   $('.sendme').hide();
   $('#hearting').hide();
@@ -492,6 +494,9 @@ if(isopen==0){
 </script>
   </head>
   <body>
+    <div class="loading" style="width:40%;height:70%;background-color:#3a539b;position:fixed;z-index:2000;text-align:center;padding: 15% 30%;">
+      <img src="loading.gif" align="center" />
+    </div>
     <img src="mailing.png" id="mailme"/>
     <img src="menu.png" id="menume"/>
     <img src="heart.png" id="hearting"/>
