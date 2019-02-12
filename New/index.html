@@ -52,7 +52,7 @@
     }
     #navlink{
 
-      font-size: 25px;
+      font-size: 20px;
       color: #aeaeae;
       margin-left: 14%;
       transition:all 0.5s ease-in-out;
@@ -64,7 +64,7 @@
       color:#411840;
       cursor: pointer;
       text-transform: capitalize;
-      font-size: 30px;
+      font-size: 22px;
       font-weight: bold;
       transition:all 0.5s ease-in-out;
       text-shadow: white 2px 2px 10px;
@@ -176,10 +176,10 @@
     #hearting{
       position:fixed;
        height:20px;
-        width:2%;
+        width:20px;
         z-index:2200;
-        float:right;
-        margin-left:96.5%;
+		top:10px;
+		right:20px;
         margin-top:5px;
         -webkit-animation:opacy 2s infinite;
       	-moz-animation:opacy 2s infinite;
@@ -192,10 +192,10 @@
       background-color: #704c9d;
       color: white;
        padding:0.5%;
-        width:15%;
+        width:auto;
+		top:20px;
+		right:0px;
         z-index:2200;
-        float:right;
-        margin-left:85%;
         font-size: 11px;
         margin-top:69px;
         border-radius: 5% 0 0 5%;
@@ -208,10 +208,10 @@
     #mailme{
       position:fixed;
        height:52px;
-        width:4%;
+        width:52px;
         z-index:2000;
-        float:right;
-        margin-left:94%;
+		right:30px;
+		top:10px;
         margin-top:10px;
   	-webkit-animation:opac 12s infinite;
   	-moz-animation:opac 12s infinite;
@@ -273,8 +273,8 @@
   width: 34%;
   padding: 1% 2%;
   margin-left: 31%;
-  min-height: 200px;
-  margin-top: 200px;
+  min-height: 250px;
+  margin-top: 150px;
   border-radius: 5%;
   box-shadow: black 2px 2px 10px;
 }
@@ -287,26 +287,30 @@
 }
 #yourarea{
   resize: none;
-  width: 100%;
-  margin:0px 5px;
-  border-radius: 3%;
-  height: 50px;
+  margin:1px 0;
+  border:solid 1px grey;
+  border-radius: 3px;
+  height: 90px;
+  width:98%;
+  padding:5px;
 }
 
 #youremail{
-  width: 100%;
-  margin: 0px 5px;
+  margin: 1px 0;
+  border:solid 1px grey;
   margin-top: 10px;
-  border-radius: 3%;
+  padding:5px;
+  width:98%;
+  border-radius: 3px;
 }
 #yoursend{
   border:1px solid white;
   outline: none;
   padding: 5px 0px;
-  margin:5px;
+  margin:5px 0;
   background-color: #138D75;
   color: white;
-  border-radius: 3%;
+  border-radius: 3px;
 }
 #yoursend:hover{
   background-color: #0E6655;
@@ -536,10 +540,10 @@ if(isopen==0){
     <a  id="hearting2">Thanks, Leave a message Click me!</a>
     <div class="navbarmob">
       <br>
-        <a id="navlink2" onclick="hideit()" class="ms2">MySelf</a><br>
-        <a id="navlink2" onclick="hideit()" class="ach2">Acheivements</a><br>
+        <a id="navlink2" onclick="hideit()" class="ms2">Myself</a><br>
+        <a id="navlink2" onclick="hideit()" class="ach2">Work Experience</a><br>
         <a id="navlink2" onclick="hideit()" class="ac2">Academics</a><br>
-        <a id="navlink2" onclick="hideit()" class="sk2">Skills</a><br>
+        <a id="navlink2" onclick="hideit()" class="sk2">Computer Skills</a><br>
         <a id="navlink2" onclick="hideit()" class="hb2">Hobbies</a><br><br>
 
     </div>
@@ -554,16 +558,16 @@ if(isopen==0){
 
     <div class="nav" >
       <div class="intro">
-        <img src="sonu.jpeg" id="myimg"/><br>
+        <img src="sonukedia.png" id="myimg"/><br>
         <h1>Sonu Kedia</h1>
         <a style="color:#e4e4e4;margin-top:5px;font-size:14px;" >(sonukedia00@gmail.com)</a>
       </div>
       <div class="navbar">
         <br>
-          <a id="navlink" class="ms">MySelf</a><br>
-          <a id="navlink" class="ach">Acheivements</a><br>
+          <a id="navlink" class="ms">Myself</a><br>
+          <a id="navlink" class="ach">Work Experience</a><br>
           <a id="navlink" class="ac">Academics</a><br>
-          <a id="navlink" class="sk">Skills</a><br>
+          <a id="navlink" class="sk">Computer Skills</a><br>
           <a id="navlink" class="hb">Hobbies</a><br><br>
 
       </div>
@@ -571,7 +575,7 @@ if(isopen==0){
     </div>
     <div class="content">
       <div class="intro2">
-        <img src="sonu.jpeg" id="myimg"/><br>
+        <img src="sonukedia.png" id="myimg"/><br>
         <h1>Sonu Kedia</h1>
         <a style="color:#e4e4e4;margin-top:5px;font-size:14px;" >(sonukedia00@gmail.com)</a>
       </div>
@@ -581,32 +585,33 @@ if(isopen==0){
           <b style="font-size:25px;">H</b>ey,
            You just successfully entered my site.
             In the welcome of your success i wanna introduce myself,
-             I am Sonu Kedia, A 2nd year <b>B.Tech</b> Student of <a style="text-decoration:none;font-weight:bold;"href="http://www.iitrpr.ac.in">Indian Institude of Techonology Ropar</a>, Punjab.
-              I don't like to talk much as i believe in doing because my works talk. I have a great interest in <b>Development of Android and Website</b> where
+             I am Sonu Kedia, A 3rd year <b>B.Tech</b> Student of <a style="text-decoration:none;font-weight:bold;"href="http://www.iitrpr.ac.in">Indian Institude of Techonology Ropar</a>, Punjab.
+              I don't like to talk much as i believe in doing because my works talk. I have a great interest in <b>Development of Android and Web App</b> where
               i can work for whole days. <br><br>
-              <b>Email :</b><a style="text-decoration:none;font-weight:bold;"href="http://sonukedia00@gmail.com"> sonukedia00@gmail.com</a><br>
+			  <b>Resume :</b><a style="text-decoration:none;font-weight:bold;"href="resume.pdf"> https://sonukedia55.github.io/New/resume.pdf</a><br>
               <b>Github :</b><a style="text-decoration:none;font-weight:bold;"href="http://www.github.com/sonukedia55"> http://www.github.com/sonukedia55</a><br>
+              <b>Email :</b><a style="text-decoration:none;font-weight:bold;"href="mailto:sonukedia00@gmail.com"> sonukedia00@gmail.com</a><br>
               <b>Facebook :</b><a style="text-decoration:none;font-weight:bold;"href=" http://www.facebook.com/sonukedia00"> http://www.facebook.com/sonukedia00 </a><br>
               <b>LinkedIn :</b><a style="text-decoration:none;font-weight:bold;"href=" https://www.linkedin.com/in/sonukedia/"> https://www.linkedin.com/in/sonukedia/ </a><br>
-              <b>Resume :</b><a style="text-decoration:none;font-weight:bold;"href="resume.pdf"> https://sonukedia55.github.io/New/resume.pdf</a><br>
+              
               <img src="quote2.png" draggable="false" id="q2" />
 
 
          </p>
       </div>
       <div class="achiv">
-        <h2 id="achh" >Achievements</h2><br>
+        <h1 id="achh" class="we" ><u style="color:grey">Work Experience</u></h1><br>
 		
 		 <a href="https://www.dron.limited" target="_blank"><div id="imgright">
           <div class="imgsctn" style="float:right;">
             <img src="img/dron.png" id="acimg" />
           </div>
           <div class="contsctn" style="float:left;margin-left:-5px;">
-            <h3 style="color:#924DA9;">Director at Dron Digital Services Pvt. ltd.</h3>
+            <h3 style="color:#924DA9;">Dron Digital Services Pvt. ltd.</h3>
             <br>
-				<b>Vice Chief Technical Officer</b><br>
+				<b>Chief Technology Officer & Director</b><br>
                 We implement our system according to the demand of college. We have different portals and we make a customized system according to need of college by including some/all of the available portals.<br>
-                <h8 style="color:#CD6155;font-size:13px;">Complete developer of Android App and website<br> (Php, my-sql, Android studio (Java))</h8>
+                
           </div>
         </div></a>
 
@@ -699,7 +704,7 @@ if(isopen==0){
           </div>
           <div id="colcont" >
             <u style="color:lightblue"><h1 style="color:lightblue"> Bachelor in Technology </h1></u><br>
-            <h3>2nd year</h3>
+            <h3>3rd year</h3>
             <h3>Mechanical Engineering</h3>
             <h2 style="color:#17A589">Indian Institude of Technology Ropar, Punjab</h2><br><br>
 
@@ -707,7 +712,7 @@ if(isopen==0){
       </div>
 
         <div class="skills">
-          <h1 id="skillh" ><u style="color:grey">Skills And Experience</u></h1><br><br>
+          <h1 id="skillh" ><u style="color:grey">Computer Skills</u></h1><br><br>
 
               <img src="skills/html.png" draggable="false"/>
               <img src="skills/java.png" draggable="false" />
