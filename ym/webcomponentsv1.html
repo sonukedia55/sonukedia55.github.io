@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Select Value</title>
+</head>
+<style>
+
+body{
+  font-family: "botplatform-font", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+  .heading{
+    margin: 8px 4px 4px;
+    color: #6576d0;
+    display: inline-block;
+    position: relative;
+    font-weight: 500;
+  }
+  .ask{
+    display: inline-block;
+    /* margin-bottom: -10px; */
+    font-size: 20px;
+    color: red;
+    transform: translateY(5px);
+  }
+  #er{
+    display: inline-block;
+    /* margin-bottom: -10px; */
+    font-size: 12px;
+    color: red;
+    display: none;;
+    transform: translateY(5px);
+  }
+  select{
+    margin: 6px 4px;
+    width: 150px;
+    padding: 5px;
+  }
+  .form-check{
+    margin: 3px 0;
+  }
+  .form-check input{
+    width: 13px;
+    transform: translateY(1px);
+  }
+  .content{
+    max-height: 280px;
+    overflow-y: auto;
+  }
+  .savebutton{
+    padding: 5px 8px;
+    background-color: #5db4d0;
+    color:white;
+    margin: 10px 4px 0 5px;
+    cursor: pointer;
+    border:0.5px blue;
+    border-radius: 3px;
+  }
+  .savebutton:disabled{
+    cursor: not-allowed;
+    background-color: grey;
+  }
+  .redbutton:disabled{
+    cursor: not-allowed;
+    background-color: grey;
+  }
+  .redbutton{
+    padding: 5px 8px;
+    background-color: #c74940;
+    color:white;
+    margin: 10px 4px 0 5px;
+    cursor: pointer;
+    border:0.5px blue;
+    border-radius: 3px;
+  }
+
+</style>
+
+<body>
+    <!-- <form action=""></form> -->
+    <div class="col-md-3 mb-3 content" id="contentCM">
+        <label class="heading" id="key">Choose</label><br>
+        <select class="custom-select" id="dropdown">
+            <option value="choose any one">Choose...</option>
+        </select><br>
+        <label class="heading">Multi select</label><br>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" > Default checkbox </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" > Default checkbox </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" > Default checkbox </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" > Default checkbox </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" > Default checkbox </label>
+        </div>
+
+        <button type="button" class="savebutton">Continue</button>
+        <button type="button" class="redbutton">Cancel</button>
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script>
+        const key = document.getElementById('key');
+        const dropdown = document.getElementById('dropdown');
+        let handleChange = (event) => {
+            // console.log('in handle change event :: ', event.target.value);
+            // return event.target.value
+            let value = event.target.value
+            // console.log(date)
+            dropdown.disabled = true
+            window.parent.postMessage(JSON.stringify({
+                event_code: 'ym-client-event', data: JSON.stringify({
+                    event: {
+                        code: "DropdownValue",
+                        data: {
+                            selectedValue: value
+                        }
+                    }
+                })
+            }), '*');
+        }
+
+        dropdown.addEventListener('change', handleChange);
+
+        var url = new URL(window.location.href);
+        //console.log(url);
+        var params = url.searchParams;
+        var str = params.get("data");
+        str = decodeURIComponent(str);
+        //str = str.slice(1, length - 1)
+        //console.log(str);
+        var dataForm = JSON.parse(str);
+        var dataList = {};
+
+
+        function onchangeSelect(e,id){
+          var val = $(e).find(':selected').val();
+          if(val=="null"){$('#'+id).html("");return;}
+          var htmlU = "";
+        //  console.log(dataList);
+          if(dataList[id] && dataList[id][val]) {
+            var values = dataList[id][val];
+            htmlU+=`<option value="null">Choose</option>`;
+            values.forEach(item => {
+              htmlU+=`<option value="${item.value}">${item.title}</option>`;
+            })
+            $('#'+id).html(htmlU);
+          }
+        }
+
+
+        function generateHTML(){
+          const getQueryParams = (params, url) => {
+
+              let href = url;
+              //this expression is to get the query strings
+              let reg = new RegExp('[?&]' + params + '=([^&#]*)', 'i');
+              let queryString = reg.exec(href);
+              return queryString ? queryString[1] : null;
+          };
+
+          var htmlFinal = "";
+
+
+        //  var dataForm = JSON.parse(data);
+          //console.log(dataForm);
+          //console.log(dataForm.length,"len");
+          var startList = [];
+
+          for(var i=0;i<dataForm.length;i++){
+            var tempdata = dataForm[i];
+            //console.log(tempdata);
+            if(tempdata.type && tempdata.id && tempdata.data){
+              dataList[tempdata.id] = tempdata.data;
+              var optional = (tempdata.optional)? '' : '<span class="ask">*</span>';
+              htmlFinal+= (tempdata.label)?`<label class="heading" id="key">${tempdata.label}</label>${optional}<br>`:'';
+              if(tempdata.type=="select"){
+                var temOther = "";
+                if(tempdata.child){
+                  temOther += ` onchange="onchangeSelect(this,'${tempdata.child}')" `;
+                  startList.push([tempdata.id,tempdata.child]);
+                }
+                htmlFinal+=`<select class="custom-select" id="${tempdata.id}" ${temOther} >`;
+                if(!tempdata.parent){
+                  var values = tempdata.data;
+                  htmlFinal+=`<option value="null">Choose</option>`;
+                  values.forEach(item => {
+                    htmlFinal+=`<option value="${item.value}">${item.title}</option>`;
+                  })
+                }
+
+                htmlFinal+=`</select><br>`;
+              }
+              if(tempdata.type=="multi-select"){
+                var values = tempdata.data;
+                values.forEach(item => {
+                  var tmid = `${tempdata.id}_${item.value}`;
+                  htmlFinal+=`<div class="form-check"><input class="form-check-input" type="checkbox" value="${item.value}" id="${tmid}"><label class="form-check-label" >${item.title}</label></div>`;
+                })
+              }
+            }
+
+          }
+
+          if(htmlFinal.length){
+            htmlFinal+='<span id="er"></span><button type="button" class="savebutton" onclick="submitData(this)">Continue</button><button type="button" class="redbutton" onclick="reload()">Cancel</button>';
+            $('#contentCM').html(htmlFinal);
+            for(var i=0;i<startList.length;i++){
+            //  console.log(startList[i]);
+              onchangeSelect('#'+startList[i][0],startList[i][1]);
+            }
+          }
+
+
+          // key.innerHTML = Object.keys(data)[0];
+          // const values = Object.values(data)[0];
+          //
+          // values.forEach(item => {
+          //     const option = document.createElement('option');
+          //     option.value = item;
+          //     option.innerHTML = item
+          //     dropdown.appendChild(option);
+          // })
+        }
+        function submittingMsg(data){
+          window.parent.postMessage(JSON.stringify({
+              event_code: 'ym-client-event', data: {
+                  event: {
+                      code: "webcomponentv1",
+                      data: data
+                  }
+              }
+          }), '*');
+        }
+        function submitData(){
+          var submit = {};var ok=1;
+          for(var i=0;i<dataForm.length;i++){
+            var tempdata = dataForm[i];
+          //  console.log("ch"+i);
+            if(tempdata.type && tempdata.id && tempdata.data){
+              var tempS = false
+              if(tempdata.type=="multi-select"){
+                var values = tempdata.data;
+                var seldata = [];
+                values.forEach(item => {
+                  if($(`#${tempdata.id}_${item.value}`).is(':checked')) seldata.push(item.value);
+                })
+                tempS = (seldata.length)?seldata:false;
+              }
+              if(tempdata.type=="select"){
+                tempS = $(`#${tempdata.id}`).find(':selected').val();
+                if(tempS=="null")tempS = false;
+              }
+              //console.log(tempS,"ch"+i,ok);
+              if(!tempdata.optional && !tempS){
+              //  console.log("opch");
+                ok=0;break;
+              }
+              if(tempS){
+                  submit[tempdata.id] = tempS;
+              }
+            }
+          }
+          if(ok){
+            $('#er').html("").hide();
+            $( ".savebutton" ).prop( "disabled", true );
+            $( ".redbutton" ).prop( "disabled", true );
+            submittingMsg(submit);
+            console.log(submit);
+          }else{
+            $('#er').html("Please complete the form!<br>").show();
+            console.log("failed");
+          }
+
+        }
+        function reload(){
+          $( ".savebutton" ).prop( "disabled", true );
+          $( ".redbutton" ).prop( "disabled", true );
+          submittingMsg({'action':'cancel'});
+        }
+        generateHTML();
+
+    </script>
+
+</body>
+
+</html>
