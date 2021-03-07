@@ -1,82 +1,60 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title></title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container" style="position:absolute;width:100%;">
+    <div class="container" style="position: absolute; width: 100%;">
       <div class="header">
         <div class="box">
           <span id="logo">Flipkart</span>
         </div>
-        <div class="box" id="loginsection">
-          <!--input type="text" id="username" value="" placeholder="Enter username">
-          <button type="button" name="button">Login</button-->
-        </div>
+        <div class="box" id="loginsection"></div>
       </div>
       <div class="product">
         <div class="left">
           <div class="img">
-            <div id="like"><div id="wishitem" class="heartg" data-active=0 onclick="toggleWishList(this)"></div></div>
-            <img src="https://rukminim1.flixcart.com/image/416/416/kirr24w0/computer/z/y/9/dell-na-laptop-original-imafyhm5jgmh4jts.jpeg?q=70" alt="">
+            <div id="like">
+              <div id="wishitem" class="heartg" data-active="0" onclick="toggleWishList(this)" ></div>
+            </div>
+            <img src="https://rukminim1.flixcart.com/image/416/416/kirr24w0/computer/z/y/9/dell-na-laptop-original-imafyhm5jgmh4jts.jpeg?q=70" />
           </div>
         </div>
         <div class="right">
           <div class="comments">
             <div class="reviewhead">
               <div id="reviewhead">
-                <h2>Rating & Reviews</h2><button type="button" name="button" id="rateButton">Rate Product</button>
+                <h2>Rating & Reviews</h2>
+                <button type="button" name="button" id="rateButton"> Rate Product </button>
               </div>
-              <div class="ratingdesc">
-              </div>
+              <div class="ratingdesc"></div>
             </div>
-            <div class="commentlist">
-              <div class="singlecomment">
-                  <div class="rating">
-                    <span>5 <div class="starrate"></div></span>
-                    <b>Awesome</b>
-                  </div>
-                  <div class="desc">
-                    Hey how are you
-                  </div>
-                  <div class="author">
-                    Sonu Kedia
-                  </div>
-              </div>
-            <div>
+            <div class="commentlist"></div>
           </div>
-
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-  <div class="popup" style="display:none">
-    <div class="popupcontent">
-      <div class="close">
-        <div class="cross" id="crosspopup"></div>
-      </div>
-      <div class="chooserate">
-        <input type="number" name="" value="" placeholder="Enter rating" id="rateinput">
-        <div class="star">  </div>
-        <div class="star">  </div>
-        <div class="star">  </div>
-        <div class="star">  </div>
-        <div class="star">  </div>
-      </div>
-      <div class="">
-        <textarea name="name" rows="8" cols="80" id="reviewinput" placeholder="Write a review"></textarea>
-        <button type="button" name="button" onclick="addcomments()">Submit</button>
-      </div>
+    <div class="popup" style="display: none;">
+      <!--div class="popupcontent">
+        <div class="close">
+          <div class="cross" id="crosspopup"></div>
+        </div>
+        <textarea name="name" rows="8" cols="80" id="reviewinput" placeholder="Write a review" ></textarea>
+        <div class="popsubmit">
+          <div class="chooserate"></div>
+          <button type="button" name="button" onclick="addcomments()">
+            Submit
+          </button>
+        </div>
+      </div-->
     </div>
-  </div>
 
     <script src="utils.js"></script>
     <script src="user.js"></script>
+    <script src="popup.js"></script>
     <script src="comments.js"></script>
-
   </body>
 </html>

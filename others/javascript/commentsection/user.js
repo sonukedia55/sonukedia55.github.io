@@ -4,7 +4,6 @@ function loginUser() {
   let uname = this.value;
   console.log(this,uname)
   let uStore = JSON.parse(localStorage.getItem("uStore")) || [];
-  console.log(uStore,typeof uStore)
   let fndUser = uStore.filter(i=>{return i.username == uname});
   if(fndUser && fndUser.length){
     activeUser = fndUser[0]
@@ -20,17 +19,12 @@ function loginUser() {
 
 function toggleWishList(e){
   let isActive = e.getAttribute('data-active');
-  console.log(isActive)
   if(isActive==1){
-    console.log(activeUser.wishList,"y")
     activeUser.wishList.splice(activeUser.wishList.indexOf(prodId), 1);
-    console.log(activeUser.wishList)
     e.className = "heartg"
   }else{
     activeUser.wishList.push(prodId);
-    console.log(activeUser.wishList)
     e.className = "heart"
-    //document.querySelector('.heart:before').style.background = "red";
   }
   e.setAttribute('data-active',-1*(isActive-1));
   updateUser()
@@ -47,17 +41,17 @@ function updateUser(){
 
 
 function userLoad(){
+  document.querySelector('#wishitem').className = "heartg";document.querySelector('#wishitem').setAttribute('data-active',0);
   if(localStorage.getItem("cUser")){
     activeUser = JSON.parse(localStorage.getItem("cUser"));
     if(activeUser.wishList.indexOf(prodId)!=-1){document.querySelector('#wishitem').className = "heart";document.querySelector('#wishitem').setAttribute('data-active',1);}
   }
   console.log(activeUser,"aU")
-  let loginsection = document.querySelector('#loginsection');
+  let loginsection = $('#loginsection');
   loginsection.innerHTML = ""
   let inputUser = createElement('input',[],{'id':`username`,'placeholder':`Enter username`});
   if(activeUser.username) inputUser.value = activeUser.username
-  let buttonLogin = createElement('button',[],{'type':`button`});
-  buttonLogin.textContent = "Login"
+  let buttonLogin = createElement('button',[],{'type':`button`},["Login"]);
   buttonLogin.onclick = loginUser.bind(inputUser)
   loginsection.appendChild(inputUser);
   loginsection.appendChild(buttonLogin);

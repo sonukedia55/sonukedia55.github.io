@@ -1,99 +1,72 @@
-let commentList = [
-  {
-    comment: "Hey, This is a comment",
-    user: "sonukedia",
-    rating: 4,
-    id: 1202,
-  }
-];
+let commentList = [];
 
-function addcomments(){
-  let rateinput = document.querySelector("#rateinput").value
-  let reviewinput = document.querySelector("#reviewinput").value
+function addcomments() {
+  let rateinput = $("#rateinput").value;
+  let reviewinput = $("#reviewinput").value;
   commentList.push({
-    comment : reviewinput,
-    user : activeUser.username,
-    rating : rateinput,
-    id : (new Date()).getTime().toString().substr(0, 13)
-  })
-  localStorage.setItem(`comments/${prodId}`,JSON.stringify(commentList))
-  loadComments()
-  document.querySelector('.popup').style.display = "none"
+    comment: reviewinput,
+    user: activeUser.username,
+    rating: rateinput,
+    id: new Date().getTime().toString().substr(0, 13),
+  });
+  localStorage.setItem(`comments/${prodId}`, JSON.stringify(commentList));
+  emitter.emit('comment-updated');
+  emitter.emit('close-popup');
 }
 
-function hoverStars(p){
-  console.log(this,p);
-}
-
-function clickStars(p){
-  console.log(this.num);
-  document.querySelector('#rateinput').value = this.num;
-}
-
-function modifyPopupRate(){
-  let ratingStars = document.querySelector('.chooserate');
-  ratingStars.style.marginBottom = '15px';
-  ratingStars.innerHTML = ""
-  let rateinp = createElement('input',[],{'id':'rateinput'});
-  //rateinp.style.display = 'none';
-  ratingStars.appendChild(rateinp);
-
-  for(let i=1;i<=5;i++){
-    let stari = getStar('10px','grey');
-    ratingStars.onmouseover = function(ij){hoverStars(ij)}(i);
-    ratingStars.onmouseleave = function(){hoverStars(0)};
-    ratingStars.onclick = clickStars.bind({num:i});
-    ratingStars.appendChild(stari);
+function clickStars(p) {
+  document.querySelector("#rateinput").value = this.num;
+  let ratingStars = document.querySelectorAll(".chooserate .star");
+  for (let i = 0; i < 5; i++) {
+    if (i + 1 <= this.num) {
+      ratingStars[i].style.setProperty("--color", "#22acee");
+    } else {
+      ratingStars[i].style.setProperty("--color", "grey");
+    }
   }
 }
 
-function loadComments(){
+function loadComments() {
   commentList = JSON.parse(localStorage.getItem(`comments/${prodId}`)) || [];
-  let uiList = document.querySelector('.commentlist');
-  uiList.innerHTML = ""
+  let uiList = $(".commentlist");
+  uiList.innerHTML = "";
   let totalRate = 0;
-  console.log(commentList)
 
   commentList.forEach((item, i) => {
-    totalRate+=parseInt(item.rating)
-    let each = createElement('div',['singlecomment'],{});
-    let ratingdiv = createElement('div',['rating'],{});
-    let ratingspan = createElement('span',[],{});
-    //let ratingstar = createElement('div',['star'],{});
-    ratingspan.textContent = item.rating;
-    ratingspan.appendChild(getStar('4px','white'));
-    ratingdiv.appendChild(ratingspan);
-    let ratinghead = createElement('b',[],{});
-    ratingdiv.appendChild(ratinghead);
-    each.appendChild(ratingdiv);
+    totalRate += parseInt(item.rating);
+    let ratingspan = createElement("span", [], {}, [item.rating,getStar("4px", "white")]);
+    let ratinghead = createElement("b", [], {});
+    let ratingdiv = createElement("div", ["rating"], {}, [ratingspan,ratinghead]);
 
-    let ratingdesc = createElement('div',['desc'],{});
-    ratingdesc.textContent = item.comment
-    let ratingauthor = createElement('div',['author'],{});
-    ratingauthor.textContent = item.user
-    each.appendChild(ratingdesc);
-    each.appendChild(ratingauthor);
+    let ratingdesc = createElement("div", ["desc"], {}, [item.comment]);
+    let ratingauthor = createElement("div", ["author"], {}, [item.user]);
 
+    let each = createElement("div", ["singlecomment"], {}, [ ratingdiv, ratingdesc, ratingauthor]);
     uiList.appendChild(each);
   });
 
-  //Overall rating div
+  let ratindDesc = $(".ratingdesc");
+  ratindDesc.innerHTML = "";
 
-  let ratindDesc = document.querySelector('.ratingdesc');
-  ratindDesc.innerHTML = ""
-  console.log(totalRate)
-
-  let rleft = createElement('div',['rleft'],{});
-  rleft.textContent = (commentList.length) ? totalRate/commentList.length : 'NA';
-  let star = createElement('div',['star'],{});
-  rleft.appendChild(star);
+  let star = createElement("div", ["star"], {});
+  let rleft = createElement("div", ["rleft"], {}, [
+    commentList.length ? parseFloat(totalRate / commentList.length).toFixed( 2 ) : "NA",
+    star,
+  ]);
   ratindDesc.appendChild(rleft);
 
-  let rright = createElement('div',['rright'],{});
-  rright.textContent = `${commentList.length} Rating & ${commentList.length} Reviews`;
+  let rright = createElement("div", ["rright"], {}, [
+    `${commentList.length} Rating & ${commentList.length} Reviews`,
+  ]);
   ratindDesc.appendChild(rright);
 
-  modifyPopupRate()
+  $("#rateButton").onclick = function () {
+    emitter.emit("open-popup", { type: "review" });
+  };
 }
 
-loadComments();
+emitter.subscribe("comment-updated", (data) => {
+  loadComments();
+});
+
+emitter.emit('comment-updated');
