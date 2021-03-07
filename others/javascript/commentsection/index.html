@@ -3,231 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <style>
-      *{
-        margin:0;
-        font-family: sans-serif;
-      }
-      .header{
-        height: 80px;
-        background-color: #2196f3;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: fixed;
-        z-index: 100;
-        width: 100%;
-        /* border: solid; */
-        box-shadow: 0px 1px 2px 0px #3a3a3a;
-      }
-      .box{
-        padding: 0 60px;
-      }
-      span#logo {
-        font-size: 24px;
-      }
-      input#username {
-          padding: 7px;
-          height: 14px;
-          /* margin-right: 0; */
-          border: solid 0.5px grey;
-          border-radius: 3px;
-      }
-      .box button {
-          height: 30px;
-          margin: 0px;
-          border: solid 0.5px grey;
-          /* background-color: #03a9f4; */
-      }
-      .product {
-          display: flex;
-          padding: 80px 40px;
-          background-color: #f4f4f4;
-          /* flex-direction: row; */
-      }
-      .left{
-        background-color: white;
-        padding:20px;
-        flex: auto;
-        position: relative;
-      }
-
-      .img {
-          border: solid 1px #eeeaea;
-          border-radius: 2px;
-          position: fixed;
-          padding: 20px;
-      }
-      #like{
-        display: flex;
-        flex-direction: row-reverse;
-      }
-      div#heart {
-          height: 25px;
-          width: 20px;
-          flex-direction: row-reverse;
-      }
-      .right{
-        flex:1;
-        background-color: white;
-      }
-      .comments{
-        border-radius: 2px;
-        padding: 20px;
-      }
-      div#reviewhead {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-      }
-      #reviewhead button {
-        margin: 0px;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-
-        /* border: solid 0.5px grey; */
-        background-color: #ffffff;
-        box-shadow: 0px 1px 2px grey;
-      }
-
-      .rleft {
-          font-size: 36px;
-          display: flex;
-          align-items: center;
-          padding: 25px 0px 10px;
-      }
-      .rright {
-          padding: 25px 20px 10px;
-      }
-      .reviewhead{
-          padding:20px;
-          border: solid 1px #eeeaea;
-      }
-      .ratingdesc {
-          display: flex;
-          align-items: center;
-      }
-      .rating {
-          display: flex;
-          align-items: center;
-          padding: 5px 0;
-      }
-      .rating span {
-          background-color: green;
-          color: white;
-          display: flex;
-          align-items: center;
-          padding: 3px 5px;
-          font-size: 12px;
-      }
-      .rating b {
-          margin-left: 15px;
-      }
-      .singlecomment{
-        border: solid 1px #eeeaea;
-        padding:20px;
-      }
-      .desc{
-        padding: 5px 0;
-        font-size: 14px;
-      }
-      .author{
-        padding: 5px 0;
-        font-size: 13px;
-        font-weight: bold;
-        color: #a2a2a2;
-      }
-
-
-      #star{
-        height: 0px;
-        width: 0px;
-        margin-left: 10px;
-        border-left: solid 10px transparent;
-        border-right: solid 10px transparent;
-        border-bottom: solid 20px black;
-        position: relative;
-      }
-      #star:after {
-          height: 0px;
-          width: 0px;
-          position: absolute;
-          border-left: solid 10px transparent;
-          border-right: solid 10px transparent;
-          border-top: solid 20px black;
-          content: "";
-          top: 5px;
-          left: -10px;
-      }
-
-      .starrate{
-        height: 0px;
-        width: 0px;
-        margin-left: 5px;
-        border-left: solid 4px transparent;
-        border-right: solid 4px transparent;
-        border-bottom: solid 8px white;
-        position: relative;
-      }
-      .starrate:after {
-          height: 0px;
-          width: 0px;
-          position: absolute;
-          border-left: solid 4px transparent;
-          border-right: solid 4px transparent;
-          border-top: solid 8px white;
-          content: "";
-          top: 2px;
-          left: -4px;
-      }
-
-      #heart {
-        position: relative;
-        width: 15px;
-        height: 30px;
-        cursor: pointer;
-      }
-      #heart:before,
-      #heart:after {
-        position: absolute;
-        content: "";
-        left: 7px;
-        top: 0;
-        width: 8px;
-        height: 14px;
-        background: red;
-        border-radius: 50px 50px 0 0;
-        transform: rotate(
-        -45deg
-        );
-        transform-origin: 0 100%;
-      }
-      #heart:after {
-        left: 0;
-        transform: rotate(45deg);
-        transform-origin: 100% 100%;
-      }
-
-
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="container">
+    <div class="container" style="position:absolute;width:100%;">
       <div class="header">
         <div class="box">
           <span id="logo">Flipkart</span>
         </div>
-        <div class="box">
-          <input type="text" id="username" value="" placeholder="Enter username">
-          <button type="button" name="button">Login</button>
+        <div class="box" id="loginsection">
+          <!--input type="text" id="username" value="" placeholder="Enter username">
+          <button type="button" name="button">Login</button-->
         </div>
       </div>
       <div class="product">
         <div class="left">
           <div class="img">
-            <div id="like"><div id="heart"></div></div>
+            <div id="like"><div id="wishitem" class="heartg" data-active=0 onclick="toggleWishList(this)"></div></div>
             <img src="https://rukminim1.flixcart.com/image/416/416/kirr24w0/computer/z/y/9/dell-na-laptop-original-imafyhm5jgmh4jts.jpeg?q=70" alt="">
           </div>
         </div>
@@ -235,126 +27,12 @@
           <div class="comments">
             <div class="reviewhead">
               <div id="reviewhead">
-                <h2>Rating & Reviews</h2><button type="button" name="button">Rate Product</button>
+                <h2>Rating & Reviews</h2><button type="button" name="button" id="rateButton">Rate Product</button>
               </div>
               <div class="ratingdesc">
-                <div class="rleft">
-                  4.3 <div id="star"></div>
-                </div>
-                <div class="rright">
-                  225 Rating & 41 Reviews
-                </div>
               </div>
             </div>
             <div class="commentlist">
-              <div class="singlecomment">
-                  <div class="rating">
-                    <span>5 <div class="starrate"></div></span>
-                    <b>Awesome</b>
-                  </div>
-                  <div class="desc">
-                    Hey how are you
-                  </div>
-                  <div class="author">
-                    Sonu Kedia
-                  </div>
-              </div>
-              <div class="singlecomment">
-                  <div class="rating">
-                    <span>5 <div class="starrate"></div></span>
-                    <b>Awesome</b>
-                  </div>
-                  <div class="desc">
-                    Hey how are you
-                  </div>
-                  <div class="author">
-                    Sonu Kedia
-                  </div>
-              </div>
-              <div class="singlecomment">
-                  <div class="rating">
-                    <span>5 <div class="starrate"></div></span>
-                    <b>Awesome</b>
-                  </div>
-                  <div class="desc">
-                    Hey how are you
-                  </div>
-                  <div class="author">
-                    Sonu Kedia
-                  </div>
-              </div>
-              <div class="singlecomment">
-                  <div class="rating">
-                    <span>5 <div class="starrate"></div></span>
-                    <b>Awesome</b>
-                  </div>
-                  <div class="desc">
-                    Hey how are you
-                  </div>
-                  <div class="author">
-                    Sonu Kedia
-                  </div>
-              </div>
-              <div class="singlecomment">
-                  <div class="rating">
-                    <span>5 <div class="starrate"></div></span>
-                    <b>Awesome</b>
-                  </div>
-                  <div class="desc">
-                    Hey how are you
-                  </div>
-                  <div class="author">
-                    Sonu Kedia
-                  </div>
-              </div>
-              <div class="singlecomment">
-                  <div class="rating">
-                    <span>5 <div class="starrate"></div></span>
-                    <b>Awesome</b>
-                  </div>
-                  <div class="desc">
-                    Hey how are you
-                  </div>
-                  <div class="author">
-                    Sonu Kedia
-                  </div>
-              </div>
-              <div class="singlecomment">
-                  <div class="rating">
-                    <span>5 <div class="starrate"></div></span>
-                    <b>Awesome</b>
-                  </div>
-                  <div class="desc">
-                    Hey how are you
-                  </div>
-                  <div class="author">
-                    Sonu Kedia
-                  </div>
-              </div>
-              <div class="singlecomment">
-                  <div class="rating">
-                    <span>5 <div class="starrate"></div></span>
-                    <b>Awesome</b>
-                  </div>
-                  <div class="desc">
-                    Hey how are you
-                  </div>
-                  <div class="author">
-                    Sonu Kedia
-                  </div>
-              </div>
-              <div class="singlecomment">
-                  <div class="rating">
-                    <span>5 <div class="starrate"></div></span>
-                    <b>Awesome</b>
-                  </div>
-                  <div class="desc">
-                    Hey how are you
-                  </div>
-                  <div class="author">
-                    Sonu Kedia
-                  </div>
-              </div>
               <div class="singlecomment">
                   <div class="rating">
                     <span>5 <div class="starrate"></div></span>
@@ -373,6 +51,32 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+  <div class="popup" style="display:none">
+    <div class="popupcontent">
+      <div class="close">
+        <div class="cross" id="crosspopup"></div>
+      </div>
+      <div class="chooserate">
+        <input type="number" name="" value="" placeholder="Enter rating" id="rateinput">
+        <div class="star">  </div>
+        <div class="star">  </div>
+        <div class="star">  </div>
+        <div class="star">  </div>
+        <div class="star">  </div>
+      </div>
+      <div class="">
+        <textarea name="name" rows="8" cols="80" id="reviewinput" placeholder="Write a review"></textarea>
+        <button type="button" name="button" onclick="addcomments()">Submit</button>
+      </div>
+    </div>
+  </div>
+
+    <script src="utils.js"></script>
+    <script src="user.js"></script>
+    <script src="comments.js"></script>
 
   </body>
 </html>

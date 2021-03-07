@@ -1,0 +1,288 @@
+*{
+  margin:0;
+  font-family: sans-serif;
+}
+.header{
+  height: 80px;
+  background-color: #2196f3;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  /* border: solid; */
+  box-shadow: 0px 1px 2px 0px #3a3a3a;
+}
+.box{
+  padding: 0 60px;
+}
+span#logo {
+  font-size: 24px;
+}
+input#username {
+    padding: 7px;
+    height: 14px;
+    /* margin-right: 0; */
+    border: solid 0.5px grey;
+    border-radius: 3px;
+}
+.box button {
+    height: 30px;
+    margin: 0px;
+    border: solid 0.5px grey;
+    /* background-color: #03a9f4; */
+}
+.product {
+    display: flex;
+    padding: 80px 40px;
+    background-color: #f4f4f4;
+    /* flex-direction: row; */
+}
+.left{
+  background-color: white;
+  padding:20px;
+  width: 450px;
+  position: relative;
+}
+
+.img {
+    border: solid 1px #eeeaea;
+    border-radius: 2px;
+    position: fixed;
+    width: 410px;
+    padding: 20px;
+}
+#like{
+  display: flex;
+  flex-direction: row-reverse;
+}
+div#heart {
+    height: 25px;
+    width: 20px;
+    flex-direction: row-reverse;
+}
+.right{
+  flex:1;
+  background-color: white;
+}
+.comments{
+  border-radius: 2px;
+  padding: 20px;
+}
+div#reviewhead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#reviewhead button {
+  margin: 0px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+
+  /* border: solid 0.5px grey; */
+  background-color: #ffffff;
+  box-shadow: 0px 1px 2px grey;
+}
+
+.rleft {
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    padding: 25px 0px 10px;
+}
+.rright {
+    padding: 25px 20px 10px;
+}
+.reviewhead{
+    padding:20px;
+    border: solid 1px #eeeaea;
+}
+.ratingdesc {
+    display: flex;
+    align-items: center;
+}
+.rating {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+.rating span {
+    background-color: green;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 3px 5px;
+    font-size: 12px;
+}
+.rating b {
+    margin-left: 15px;
+}
+.singlecomment{
+  border: solid 1px #eeeaea;
+  padding:20px;
+}
+.desc{
+  padding: 5px 0;
+  font-size: 14px;
+}
+.author{
+  padding: 5px 0;
+  font-size: 13px;
+  font-weight: bold;
+  color: #a2a2a2;
+}
+
+#star{
+  height: 0px;
+  width: 0px;
+  margin-left: 10px;
+  border-left: solid 10px transparent;
+  border-right: solid 10px transparent;
+  border-bottom: solid 20px black;
+  position: relative;
+}
+#star:after {
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    border-left: solid 10px transparent;
+    border-right: solid 10px transparent;
+    border-top: solid 20px black;
+    content: "";
+    top: 5px;
+    left: -10px;
+}
+
+.star{
+  height: 0px;
+  width: 0px;
+  margin-left: 10px;
+  border-left: solid var(--size, 10px) transparent;
+  border-right: solid var(--size, 10px) transparent;
+  border-bottom: solid calc(var(--size , 10px) *2) var(--color ,black);
+  position: relative;
+}
+.star:after {
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    border-left: solid var(--size, 10px) transparent;
+    border-right: solid var(--size, 10px) transparent;
+    border-top: solid calc(var(--size,10px) *2) var(--color ,black);
+    content: "";
+    top: calc(var(--size , 10px) /2);
+    left: calc(var(--size, 10px) * -1);
+}
+
+.heart {
+  position: relative;
+  width: 15px;
+  height: 30px;
+  cursor: pointer;
+}
+.heart:before,
+.heart:after {
+  position: absolute;
+  content: "";
+  left: 7px;
+  top: 0;
+  width: 8px;
+  height: 14px;
+  background: red;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(
+  -45deg
+  );
+  transform-origin: 0 100%;
+}
+.heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.heartg {
+  position: relative;
+  width: 15px;
+  height: 30px;
+  cursor: pointer;
+}
+.heartg:before,
+.heartg:after {
+  position: absolute;
+  content: "";
+  left: 7px;
+  top: 0;
+  width: 8px;
+  height: 14px;
+  background: grey;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(
+  -45deg
+  );
+  transform-origin: 0 100%;
+}
+.heartg:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+.popup{
+  position: fixed;
+  width: 100%;
+  background-color: #e1e1e1cc;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popupcontent {
+    /* width: 200px; */
+    background: white;
+    padding: 40px;
+    border-radius: 3px;
+}
+textarea#reviewinput {
+    border: solid 0.5px grey;
+    border-radius: 3px;
+    width: 95%;
+    padding: 2%
+}
+.popup button {
+    padding: 10px 20px;
+    color: white;
+    background-color: #22acee;
+    /* border-radius: 3px; */
+    border: none;
+    box-shadow: 0px 1px 1px grey;
+}
+
+.cross{
+  width: 4px;
+  height: 14px;
+  cursor: pointer;
+  position: relative;
+  background-color: red;
+  transform: rotate(45deg);
+}
+.cross:after{
+  width: 14px;
+  position: absolute;
+  background-color: red;
+  height: 4px;
+  left: -5px;
+  top: 5px;
+  content: "";
+}
+.close{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.chooserate {
+    display: flex;
+}
