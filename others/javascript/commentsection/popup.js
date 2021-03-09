@@ -48,6 +48,7 @@ function getPopupHTML(type) {
 
 emitter.subscribe("close-popup", (data) => {
   $(".popup").style.display = "none";
+  $(".popup").style.opactity = "0";
 });
 
 emitter.subscribe("open-popup", (type) => {

@@ -1,0 +1,284 @@
+*{
+  margin:0;
+  font-family: sans-serif;
+}
+.header{
+  height: 80px;
+  background-color: #0587ee;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  /* border: solid; */
+  box-shadow: 0px 1px 2px 0px #3a3a3a;
+}
+.box{
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+}
+.logo {
+  font-size: 24px;
+}
+.userhead{
+  font-size: 20px;
+  margin: 0 15px;
+}
+input#username {
+    padding: 7px;
+    height: 14px;
+    /* margin-right: 0; */
+    border: solid 0.5px grey;
+    border-radius: 3px;
+}
+.box button {
+    height: 30px;
+    margin: 0px;
+    border: solid 0.5px grey;
+    /* background-color: #03a9f4; */
+}
+.main {
+    display: flex;
+    padding: 80px 40px;
+    background-color: #f4f4f4;
+    /* flex-direction: row; */
+}
+.left{
+  background-color: white;
+  padding:20px;
+  width: 450px;
+  position: relative;
+}
+
+.img {
+    border: solid 1px #eeeaea;
+    border-radius: 2px;
+    position: fixed;
+    width: 410px;
+    padding: 20px;
+}
+#like{
+  display: flex;
+  flex-direction: row-reverse;
+}
+div#heart {
+    height: 25px;
+    width: 20px;
+    flex-direction: row-reverse;
+}
+.right{
+  flex:1;
+  padding: 20px;
+  background-color: white;
+}
+
+.reviewhead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.reviewhead button {
+  margin: 0px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+
+  /* border: solid 0.5px grey; */
+  background-color: #ffffff;
+  box-shadow: 0px 1px 3px grey;
+}
+
+.reviewoverall {
+    font-size: 36px;
+    border: solid 1px #eeeaea;
+    border-top: none;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px 15px;
+}
+
+.overallstar {
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    padding: 25px 0px 10px;
+}
+
+.reviewhead{
+    padding:20px 20px 10px;
+    border: solid 1px #eeeaea;
+    border-bottom: none
+}
+
+.reviewhead h2{
+  font-size: 23px;
+}
+
+.singlereview{
+  border: solid 1px #eeeaea;
+  padding:20px;
+}
+
+.stardiv{
+    background-color: green;
+    color: white;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-size: 12px;
+}
+.stardiv b {
+    margin-left: 15px;
+}
+
+.reviewsection{
+  padding: 20px 0 10px;
+  font-size: 14px;
+}
+.author{
+  padding: 5px 0;
+  font-size: 13px;
+  font-weight: bold;
+  color: #a2a2a2;
+}
+
+.star{
+  height: 0px;
+  width: 0px;
+  margin-left: 10px;
+  border-left: solid var(--size, 10px) transparent;
+  border-right: solid var(--size, 10px) transparent;
+  border-bottom: solid calc(var(--size , 10px) *2) var(--color ,black);
+  position: relative;
+}
+.star:after {
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    border-left: solid var(--size, 10px) transparent;
+    border-right: solid var(--size, 10px) transparent;
+    border-top: solid calc(var(--size,10px) *2) var(--color ,black);
+    content: "";
+    top: calc(var(--size , 10px) /2);
+    left: calc(var(--size, 10px) * -1);
+}
+
+
+
+#popup{
+  position: fixed;
+  width: 100%;
+  background-color: #e1e1e1cc;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+    width: 350px;
+    background: white;
+    padding: 40px;
+    border-radius: 3px;
+}
+.reviewinput {
+    border: solid 0.5px grey;
+    border-radius: 3px;
+    width: 95%;
+    margin-top: 10px;
+    height: 100px;
+    padding: 2%
+}
+
+.inputlogin{
+  border: solid 0.5px grey;
+    border-radius: 3px;
+    margin-top: 10px;
+    height: 29px;
+    width: 70%;
+    padding: 3px 10px;
+}
+#popup button {
+    padding: 10px 20px;
+    color: white;
+    cursor:pointer;
+    height: 35px;
+    background-color: #22acee;
+    /* border-radius: 3px; */
+    border: none;
+    box-shadow: 0px 1px 1px grey;
+}
+
+.reviewpopupbottom{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    align-items: center;
+  }
+
+.cross{
+  width: 4px;
+  height: 14px;
+  cursor: pointer;
+  position: relative;
+  background-color: red;
+  transform: rotate(45deg);
+}
+.cross:after{
+  width: 14px;
+  position: absolute;
+  background-color: red;
+  height: 4px;
+  left: -5px;
+  top: 5px;
+  content: "";
+}
+.modaltitle{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.starset div {
+    display: flex;
+}
+.stardiv div .star{
+  cursor: pointer;
+}
+
+
+.animate {
+  animation: modalanimate 0.1s linear forwards;
+}
+.rev-animate {
+  animation: modalrevanimate 0.1s linear forwards;
+}
+
+@keyframes modalanimate {
+  0% {
+    transform: scale(0.8) translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes modalrevanimate {
+  100% {
+    transform: scale(0.8) translateY(100px);
+    opacity: 0;
+  }
+  0% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+}
