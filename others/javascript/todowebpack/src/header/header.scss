@@ -1,0 +1,16 @@
+.header{
+  display: flex;
+  padding: 20px 15px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3f51b5;
+  .logo{
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+  }
+  .status{
+    font-size: 15px;
+    color: white;
+  }
+}

@@ -1,0 +1,52 @@
+.src-header-header__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: blue; }
+  .src-header-header__header .src-header-header__logo {
+    font-size: 25px; }
+  .src-header-header__header .src-header-header__status {
+    font-size: 15px;
+    color: white; }
+
+.src-main-main__main .src-main-main__todos .src-main-main__each {
+  width: 300px;
+  display: flex;
+  background-color: #e9e9e9;
+  margin: 2px;
+  padding: 20px 10px;
+  justify-content: space-between; }
+  .src-main-main__main .src-main-main__todos .src-main-main__each .src-main-main__todotext {
+    width: 250px; }
+    .src-main-main__main .src-main-main__todos .src-main-main__each .src-main-main__todotext .src-main-main__checkbox {
+      margin-right: 10px;
+      width: 15px;
+      transform: translateY(2px);
+      height: 15px; }
+  .src-main-main__main .src-main-main__todos .src-main-main__each .src-main-main__tododel {
+    width: 50px; }
+
+.src-main-main__cross {
+  width: 4px;
+  height: 16px;
+  cursor: pointer;
+  position: relative;
+  margin: auto;
+  background-color: red;
+  transform: rotate(45deg) translateX(5px); }
+
+.src-main-main__cross:after {
+  width: 16px;
+  position: absolute;
+  background-color: red;
+  height: 4px;
+  left: -6.5px;
+  top: 6px;
+  content: ""; }
+
+* {
+  margin: 0;
+  font-family: system-ui; }
+
+
+/*# sourceMappingURL=main.css.map*/
