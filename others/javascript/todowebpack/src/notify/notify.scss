@@ -1,0 +1,18 @@
+.notify{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  .notifies{
+    width: 300px;
+    margin: 10px;
+    .eachnoti{
+      width: 90%;
+      background-color: #d4d4ff;
+      padding: 15px 10px;
+      border-left: solid 4px #6363f3;
+      border-radius: 2px;
+      margin: 5px;
+    }
+  }
+}

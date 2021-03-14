@@ -1,14 +1,19 @@
-import { createHeader } from './header/header';
-import { createMain } from './main/main';
+import { createHeader } from "./header/header";
+import { createNotify } from "./notify/notify";
+import { createMain,todoHand } from "./main/main";
 import { createElement, T, withAttr } from "./utils/utils";
-import styles from './index.scss';
+import styles from "./index.scss";
 
-function loadcomponent() {
-  const element = createElement('div',['container'],[
-    createHeader(),
-    createMain(),
-  ]);
-  return element;
-}
+(function () {
 
-document.body.appendChild(loadcomponent());
+  function loadcomponent() {
+    const element = createElement(
+      "div",
+      ["container"],
+      [createHeader(), createMain(),createNotify()]
+    );
+    return element;
+  }
+
+  document.body.appendChild(loadcomponent());
+})();

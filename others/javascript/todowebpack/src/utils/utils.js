@@ -26,8 +26,11 @@ export function withAttr(el,attr) {
 
 export function updateUI(el,container){
   const elm = document.querySelector(el)
-  if(elm.children.length){
-    elm.replaceChild(container,elm.firstChild)
+  elm.innerHTML = ""
+  if(Array.isArray(container)){
+    container.forEach((item, i) => {
+      elm.appendChild(item)
+    });
   }else{
     elm.appendChild(container)
   }
