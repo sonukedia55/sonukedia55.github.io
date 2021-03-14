@@ -67,8 +67,8 @@ export function createMain() {
       id : '111',
       status : false
     })
-    this.value = ""
     updatingTodo(`${this.value} added!`)
+    this.value = ""
   }
   let todos = todoHandler.getTodo();
 
