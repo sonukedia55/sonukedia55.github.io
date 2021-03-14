@@ -64,7 +64,7 @@ export function createMain() {
   function addTodo(ev) {
     todoHandler.addTodo({
       todo : this.value,
-      id : '111',
+      id : (new Date()).getTime().toString().substr(0, 13),
       status : false
     })
     updatingTodo(`${this.value} added!`)

@@ -267,11 +267,11 @@ function createMain() {
   function addTodo(ev) {
     todoHandler.addTodo({
       todo: this.value,
-      id: '111',
+      id: new Date().getTime().toString().substr(0, 13),
       status: false
     });
-    this.value = "";
     updatingTodo(`${this.value} added!`);
+    this.value = "";
   }
 
   let todos = todoHandler.getTodo();
