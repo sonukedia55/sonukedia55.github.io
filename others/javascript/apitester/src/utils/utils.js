@@ -27,7 +27,7 @@ export function withAttr(el,attr) {
 }
 
 export function updateUI(el,container){
-  const elm = document.querySelector('#'+el)
+  const elm = document.querySelector(el)
   elm.innerHTML = ""
   if(Array.isArray(container)){
     container.forEach((item, i) => {

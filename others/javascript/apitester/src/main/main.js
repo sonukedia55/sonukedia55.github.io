@@ -11,12 +11,23 @@ export function createHeader() {
 
 export function updateApiResponse(response) {
   response = (typeof response) != "string" ? JSON.stringify(response) : response
-  updateUI('responses',T(response))
+  updateUI('#responses',T(response))
   updateHistoryView()
 }
 
+function loadHistory() {
+  const ix = this['data-i'];
+  const historyVal = apiHandler.getApiHistory().filter((i,ind)=>{return ind==ix})[0]
+  let dataH = historyVal.header
+  apiHandler.updateHeaderAll(dataH)
+  updateHeaderView()
+  document.querySelector(`.${styles['apiurl']}`).value = historyVal.url
+  document.querySelector(`.${styles['methodlist']}`).value = historyVal.method
+  document.querySelector(`.${styles['reqdivtextarea']}`).value = historyVal.body
+}
+
 function updateHistoryView() {
-  updateUI('historylist',apiHandler.getApiHistory().map(historyListEach))
+  updateUI('#historylist',apiHandler.getApiHistory().map(historyListEach))
 }
 
 function addheader() {
@@ -43,13 +54,13 @@ const headerListEach = (item,i) => {
 }
 
 function updateHeaderView() {
-  updateUI('headerslist',apiHandler.getApiHeader().map(headerListEach))
+  updateUI('#headerslist',apiHandler.getApiHeader().map(headerListEach))
 }
 
-const historyListEach = (item) => {
+const historyListEach = (item,i) => {
   let title = "/"+item.url.split("/").slice(3).join("/")
   return createElement('div',styles['historyeach'],[
-    createElement('div',styles['historyhead'],T(title)),
+    withAttr(createElement('div',styles['historyhead'],T(title)),{onclick : loadHistory,'data-i':i}),
     createElement('div',styles['historybody'],[
       createElement('div',styles['historybodymethod'],T(item.method)),
       createElement('div',styles['historybodystatus'],T(item.status)),

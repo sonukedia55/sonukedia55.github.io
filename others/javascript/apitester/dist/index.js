@@ -95063,7 +95063,7 @@ function apiHand() {
     body: ""
   };
   let headerList = [];
-  const historyList = [];
+  const historyList = localStorage.getItem("apiHistory") ? JSON.parse(localStorage.getItem("apiHistory")) : [];
   return {
     getApiType: () => {
       return apiTypes;
@@ -95073,12 +95073,16 @@ function apiHand() {
     },
     addApiHistory: v => {
       historyList.push(v);
+      localStorage.setItem("apiHistory", JSON.stringify(historyList));
     },
     getApiHeader: () => {
       return headerList;
     },
     addApiHeader: data => {
       headerList.push(data);
+    },
+    updateHeaderAll: v => {
+      headerList = v;
     },
     updateApiHeader: ({
       key,
@@ -95217,12 +95221,25 @@ function createHeader() {
 }
 function updateApiResponse(response) {
   response = typeof response != "string" ? JSON.stringify(response) : response;
-  Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["updateUI"])('responses', Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["T"])(response));
+  Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["updateUI"])('#responses', Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["T"])(response));
   updateHistoryView();
 }
 
+function loadHistory() {
+  const ix = this['data-i'];
+  const historyVal = _api_api__WEBPACK_IMPORTED_MODULE_1__["apiHandler"].getApiHistory().filter((i, ind) => {
+    return ind == ix;
+  })[0];
+  let dataH = historyVal.header;
+  _api_api__WEBPACK_IMPORTED_MODULE_1__["apiHandler"].updateHeaderAll(dataH);
+  updateHeaderView();
+  document.querySelector(`.${_main_scss__WEBPACK_IMPORTED_MODULE_2___default.a['apiurl']}`).value = historyVal.url;
+  document.querySelector(`.${_main_scss__WEBPACK_IMPORTED_MODULE_2___default.a['methodlist']}`).value = historyVal.method;
+  document.querySelector(`.${_main_scss__WEBPACK_IMPORTED_MODULE_2___default.a['reqdivtextarea']}`).value = historyVal.body;
+}
+
 function updateHistoryView() {
-  Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["updateUI"])('historylist', _api_api__WEBPACK_IMPORTED_MODULE_1__["apiHandler"].getApiHistory().map(historyListEach));
+  Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["updateUI"])('#historylist', _api_api__WEBPACK_IMPORTED_MODULE_1__["apiHandler"].getApiHistory().map(historyListEach));
 }
 
 function addheader() {
@@ -95267,12 +95284,15 @@ const headerListEach = (item, i) => {
 };
 
 function updateHeaderView() {
-  Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["updateUI"])('headerslist', _api_api__WEBPACK_IMPORTED_MODULE_1__["apiHandler"].getApiHeader().map(headerListEach));
+  Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["updateUI"])('#headerslist', _api_api__WEBPACK_IMPORTED_MODULE_1__["apiHandler"].getApiHeader().map(headerListEach));
 }
 
-const historyListEach = item => {
+const historyListEach = (item, i) => {
   let title = "/" + item.url.split("/").slice(3).join("/");
-  return Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', _main_scss__WEBPACK_IMPORTED_MODULE_2___default.a['historyeach'], [Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', _main_scss__WEBPACK_IMPORTED_MODULE_2___default.a['historyhead'], Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["T"])(title)), Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', _main_scss__WEBPACK_IMPORTED_MODULE_2___default.a['historybody'], [Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', _main_scss__WEBPACK_IMPORTED_MODULE_2___default.a['historybodymethod'], Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["T"])(item.method)), Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', _main_scss__WEBPACK_IMPORTED_MODULE_2___default.a['historybodystatus'], Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["T"])(item.status))])]);
+  return Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', _main_scss__WEBPACK_IMPORTED_MODULE_2___default.a['historyeach'], [Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["withAttr"])(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', _main_scss__WEBPACK_IMPORTED_MODULE_2___default.a['historyhead'], Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["T"])(title)), {
+    onclick: loadHistory,
+    'data-i': i
+  }), Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', _main_scss__WEBPACK_IMPORTED_MODULE_2___default.a['historybody'], [Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', _main_scss__WEBPACK_IMPORTED_MODULE_2___default.a['historybodymethod'], Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["T"])(item.method)), Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', _main_scss__WEBPACK_IMPORTED_MODULE_2___default.a['historybodystatus'], Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["T"])(item.status))])]);
 };
 
 function createMainBody() {
@@ -95374,7 +95394,7 @@ function withAttr(el, attr) {
   return el;
 }
 function updateUI(el, container) {
-  const elm = document.querySelector('#' + el);
+  const elm = document.querySelector(el);
   elm.innerHTML = "";
 
   if (Array.isArray(container)) {

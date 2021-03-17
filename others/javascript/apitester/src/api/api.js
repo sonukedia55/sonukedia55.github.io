@@ -9,7 +9,7 @@ function apiHand() {
     body: "",
   };
   let headerList = [];
-  const historyList = [];
+  const historyList = localStorage.getItem("apiHistory") ? JSON.parse(localStorage.getItem("apiHistory")) : [];
 
   return {
     getApiType: () => {
@@ -20,6 +20,7 @@ function apiHand() {
     },
     addApiHistory: (v) => {
       historyList.push(v);
+      localStorage.setItem("apiHistory",JSON.stringify(historyList));
     },
     getApiHeader: () => {
       return headerList;
@@ -27,6 +28,7 @@ function apiHand() {
     addApiHeader: (data) => {
       headerList.push(data);
     },
+    updateHeaderAll : (v) => {headerList = v},
     updateApiHeader: ({ key, value, index, action }) => {
       if (action && action == "d") {
         headerList = headerList.filter((i, ind) => {
