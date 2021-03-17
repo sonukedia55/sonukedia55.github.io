@@ -1,0 +1,186 @@
+.header{
+  display: flex;
+  padding: 20px 15px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3f51b5;
+  .logo{
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+  }
+  .status{
+    font-size: 15px;
+    color: white;
+  }
+}
+
+.main{
+  display: flex;
+  background-color: lightgrey;
+  .left{
+    width: 260px;
+    background-color: #232323;
+    .lefttitle{
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      margin: 20px 20px 10px;
+    }
+    .historyeach{
+      margin: 10px;
+      /* cursor: pointer; */
+      padding: 10px;
+      border-bottom: solid 0.5px #595959;
+      .historyhead{
+        font-weight: bold;
+        color: #dbdbdb;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      .historybody{
+        display: flex;
+        margin-top: 5px;
+        justify-content: space-between;
+        .historybodymethod{
+          padding: 3px;
+          background-color: green;
+          color: white;
+          font-size: 12px;
+          border-radius: 3px;
+        }
+        .historybodystatus{
+          color:green;
+        }
+      }
+    }
+  }
+  .right{
+    flex: 1;
+    background-color: #f5f5f5;
+    .rightinner{
+      margin: 15px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 3px;
+      .apititle{
+        color: #6d6d6d;
+        margin: 10px 0 20px;
+      }
+      .apiurlbox{
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+        .lefturl{
+          display: flex;
+          flex-direction: column;
+          .methodlist{
+            padding: 5px;
+            font-size: 13px;
+            border: solid 0.5px grey;
+            border-radius: 3px;
+            height: 29px;
+          }
+        }
+        .righturl{
+          display: flex;
+          flex: 1;
+          margin: 0 10px;
+          flex-direction: column;
+          .apiurl{
+            padding: 5px;
+            font-size: 13px;
+            border-radius: 3px;
+            height: 18px;
+            border: solid 0.5px grey;
+          }
+        }
+        .buttonsend{
+          padding: 5px 20px;
+          font-size: 13px;
+          /* margin: 0 5px; */
+          height: 30px;
+          transform: translateY(23px);
+        }
+      }
+      .requestapi{
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+        .headersdiv{
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          margin: 0 20px 0 0;
+          .headerslist{
+            .headereach{
+              display: flex;
+              justify-content: space-between;
+              margin: 5px 0;
+              align-items: center;
+              .headereachkey{
+                padding: 3px 4px;
+                flex: 1;
+              }
+              .headereachvalue{
+                padding: 3px 4px;
+                flex: 1;
+              }
+
+            }
+          }
+        }
+        .requestbodydiv{
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          .reqdivtextarea{
+            padding: 5px;
+            min-height: 140px;
+          }
+        }
+      }
+    }
+    .rightresponse{
+      margin: 15px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 3px;
+      display: flex;
+      flex-direction: column;
+      .respbody{
+        border-radius: 3px;
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 13px;
+        min-height: 100px;
+        border: solid 0.5px grey;
+      }
+    }
+  }
+}
+.coltitle{
+  width: 100%;
+  color: #757575;
+  font-size: 12px;
+  margin: 5px 0;
+  text-transform: uppercase;
+}
+.cross{
+  width: 4px;
+  height: 16px;
+  cursor: pointer;
+  position: relative;
+  margin-left: 20px;
+  background-color: red;
+  transform: rotate(45deg);
+}
+.cross:after{
+  width: 16px;
+  position: absolute;
+  background-color: red;
+  height: 4px;
+  left: -6.5px;
+  top: 6px;
+  content: "";
+}
