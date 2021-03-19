@@ -1,0 +1,161 @@
+.src-main-main__header {
+  display: flex;
+  padding: 20px 15px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3f51b5; }
+  .src-main-main__header .src-main-main__logo {
+    font-size: 25px;
+    color: white;
+    font-weight: bold; }
+  .src-main-main__header .src-main-main__status {
+    font-size: 15px;
+    color: white; }
+
+.src-main-main__main {
+  display: flex;
+  background-color: lightgrey; }
+  .src-main-main__main .src-main-main__left {
+    width: 260px;
+    background-color: #232323; }
+    .src-main-main__main .src-main-main__left .src-main-main__lefttitle {
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      margin: 20px 20px 10px; }
+    .src-main-main__main .src-main-main__left .src-main-main__historyeach {
+      margin: 10px;
+      /* cursor: pointer; */
+      padding: 10px;
+      border-bottom: solid 0.5px #595959; }
+      .src-main-main__main .src-main-main__left .src-main-main__historyeach .src-main-main__historyhead {
+        font-weight: bold;
+        color: #dbdbdb;
+        cursor: pointer;
+        font-size: 14px; }
+      .src-main-main__main .src-main-main__left .src-main-main__historyeach .src-main-main__historybody {
+        display: flex;
+        margin-top: 5px;
+        justify-content: space-between; }
+        .src-main-main__main .src-main-main__left .src-main-main__historyeach .src-main-main__historybody .src-main-main__historybodymethod {
+          padding: 3px;
+          background-color: green;
+          color: white;
+          font-size: 12px;
+          border-radius: 3px; }
+        .src-main-main__main .src-main-main__left .src-main-main__historyeach .src-main-main__historybody .src-main-main__historybodystatus {
+          color: green; }
+  .src-main-main__main .src-main-main__right {
+    flex: 1;
+    background-color: #f5f5f5; }
+    .src-main-main__main .src-main-main__right .src-main-main__rightinner {
+      margin: 15px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 3px; }
+      .src-main-main__main .src-main-main__right .src-main-main__rightinner .src-main-main__apititle {
+        color: #6d6d6d;
+        margin: 10px 0 20px; }
+      .src-main-main__main .src-main-main__right .src-main-main__rightinner .src-main-main__apiurlbox {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0; }
+        .src-main-main__main .src-main-main__right .src-main-main__rightinner .src-main-main__apiurlbox .src-main-main__lefturl {
+          display: flex;
+          flex-direction: column; }
+          .src-main-main__main .src-main-main__right .src-main-main__rightinner .src-main-main__apiurlbox .src-main-main__lefturl .src-main-main__methodlist {
+            padding: 5px;
+            font-size: 13px;
+            border: solid 0.5px grey;
+            border-radius: 3px;
+            height: 29px; }
+        .src-main-main__main .src-main-main__right .src-main-main__rightinner .src-main-main__apiurlbox .src-main-main__righturl {
+          display: flex;
+          flex: 1;
+          margin: 0 10px;
+          flex-direction: column; }
+          .src-main-main__main .src-main-main__right .src-main-main__rightinner .src-main-main__apiurlbox .src-main-main__righturl .src-main-main__apiurl {
+            padding: 5px;
+            font-size: 13px;
+            border-radius: 3px;
+            height: 18px;
+            border: solid 0.5px grey; }
+        .src-main-main__main .src-main-main__right .src-main-main__rightinner .src-main-main__apiurlbox .src-main-main__buttonsend {
+          padding: 5px 20px;
+          font-size: 13px;
+          /* margin: 0 5px; */
+          height: 30px;
+          transform: translateY(23px); }
+      .src-main-main__main .src-main-main__right .src-main-main__rightinner .src-main-main__requestapi {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0; }
+        .src-main-main__main .src-main-main__right .src-main-main__rightinner .src-main-main__requestapi .src-main-main__headersdiv {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          margin: 0 20px 0 0; }
+          .src-main-main__main .src-main-main__right .src-main-main__rightinner .src-main-main__requestapi .src-main-main__headersdiv .src-main-main__headerslist .src-main-main__headereach {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            align-items: center; }
+            .src-main-main__main .src-main-main__right .src-main-main__rightinner .src-main-main__requestapi .src-main-main__headersdiv .src-main-main__headerslist .src-main-main__headereach .src-main-main__headereachkey {
+              padding: 3px 4px;
+              flex: 1; }
+            .src-main-main__main .src-main-main__right .src-main-main__rightinner .src-main-main__requestapi .src-main-main__headersdiv .src-main-main__headerslist .src-main-main__headereach .src-main-main__headereachvalue {
+              padding: 3px 4px;
+              flex: 1; }
+        .src-main-main__main .src-main-main__right .src-main-main__rightinner .src-main-main__requestapi .src-main-main__requestbodydiv {
+          display: flex;
+          flex: 1;
+          flex-direction: column; }
+          .src-main-main__main .src-main-main__right .src-main-main__rightinner .src-main-main__requestapi .src-main-main__requestbodydiv .src-main-main__reqdivtextarea {
+            padding: 5px;
+            min-height: 140px; }
+    .src-main-main__main .src-main-main__right .src-main-main__rightresponse {
+      margin: 15px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 3px;
+      display: flex;
+      flex-direction: column; }
+      .src-main-main__main .src-main-main__right .src-main-main__rightresponse .src-main-main__respbody {
+        border-radius: 3px;
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 13px;
+        min-height: 100px;
+        border: solid 0.5px grey; }
+
+.src-main-main__coltitle {
+  width: 100%;
+  color: #757575;
+  font-size: 12px;
+  margin: 5px 0;
+  text-transform: uppercase; }
+
+.src-main-main__cross {
+  width: 4px;
+  height: 16px;
+  cursor: pointer;
+  position: relative;
+  margin-left: 20px;
+  background-color: red;
+  transform: rotate(45deg); }
+
+.src-main-main__cross:after {
+  width: 16px;
+  position: absolute;
+  background-color: red;
+  height: 4px;
+  left: -6.5px;
+  top: 6px;
+  content: ""; }
+
+* {
+  margin: 0;
+  font-family: sans-serif; }
+
+
+/*# sourceMappingURL=main.css.map*/
