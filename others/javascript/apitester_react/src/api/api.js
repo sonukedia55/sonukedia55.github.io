@@ -1,3 +1,4 @@
+const request = require('request')
 import { updateApiResponse } from "../main/main";
 
 function apiHand() {
@@ -70,26 +71,26 @@ export function apiRequester() {
 
   console.log(options);
   updateApiResponse("Requesting...");
-  // request(options, function (error, response, body) {
-  //   if (response) {
-  //     apiHandler.addApiHistory({
-  //       method: options.method,
-  //       url: options.url,
-  //       header: apiHandler.getApiHeader(),
-  //       body: activeMethod.body,
-  //       status: response.statusCode,
-  //     });
-  //   }
-  //   if (error) {
-  //     let errBody = error;
-  //     if (typeof errBody == "string") {
-  //       console.log("hMSgFGena", errBody);
-  //     }
-  //   }
-  //   if (body) {
-  //     console.log("hMSgFGen");
-  //     console.log(body);
-  //     updateApiResponse(body);
-  //   }
-  // });
+  request(options, function (error, response, body) {
+    if (response) {
+      apiHandler.addApiHistory({
+        method: options.method,
+        url: options.url,
+        header: apiHandler.getApiHeader(),
+        body: activeMethod.body,
+        status: response.statusCode,
+      });
+    }
+    if (error) {
+      let errBody = error;
+      if (typeof errBody == "string") {
+        console.log("hMSgFGena", errBody);
+      }
+    }
+    if (body) {
+      console.log("hMSgFGen");
+      console.log(body);
+      updateApiResponse(body);
+    }
+  });
 }

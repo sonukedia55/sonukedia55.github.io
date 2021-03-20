@@ -19,9 +19,11 @@ export function createElement2(elm,{className,...args},...childList) {
 
   className = Array.isArray(className) ? className : [className]
   if(className && className.length){el.className = className.join(" ")}
+  console.log(childList,"chc")
   if(childList){
+    childList = childList.flat()
     childList.forEach((item, i) => {
-      if(typeof item == "string"){
+      if(typeof item != "object"){
         item = T(item)
       }
       el.appendChild(item)

@@ -59,18 +59,18 @@ function updateHeaderView() {
 
 const historyListEach = (item,i) => {
   let title = "/"+item.url.split("/").slice(3).join("/")
-  return createElement('div',styles['historyeach'],[
-    withAttr(createElement('div',styles['historyhead'],T(title)),{onclick : loadHistory,'data-i':i}),
-    createElement('div',styles['historybody'],[
-      createElement('div',styles['historybodymethod'],T(item.method)),
-      createElement('div',styles['historybodystatus'],T(item.status)),
-    ])
-  ])
+  return <div className={styles['historyeach']}>
+          <div className={styles['historyhead']} onclick={loadHistory} data-i={i}>{title}</div>
+          <div className={styles['historybody']}>
+            <div className={styles['historybodymethod']}>{item.method}</div>
+            <div className={styles['historybodystatus']}>{item.status}</div>
+          </div>
+        </div>
 }
 
 export function createMainBody() {
   const methodListMap = (item) => {
-    return withAttr(createElement('option',[],[T(item)]),{value : item});
+    return <option value={item} >{item}</option>
   }
 
   function methodchange() {
@@ -83,42 +83,47 @@ export function createMainBody() {
     apiHandler.updateActiveMethod({url:this.value})
   }
 
-  return createElement('div',styles['main'],[
-    createElement('div',styles['left'],[
-      createElement('div',styles['lefttitle'],T('History')),
-      createElement('div',styles['historylisthere'],apiHandler.getApiHistory().map(historyListEach),'historylist')
-    ]),
-    createElement('div',styles['right'],[
-      createElement('div',styles['rightinner'],[
-        createElement('h3',styles['apititle'],T('Test an API')),
-        createElement('div',styles['apiurlbox'],[
-          createElement('div',styles['lefturl'],[
-            createElement('span',[styles['coltitle']],[T('Method')]),
-            withAttr(createElement('select',styles['methodlist'],apiHandler.getApiType().map(methodListMap)),{onchange:methodchange})
-          ]),
-          createElement('div',styles['righturl'],[
-            createElement('span',[styles['coltitle']],[T('API endpoint')]),
-            withAttr(createElement('input',styles['apiurl']),{placeholder:'Enter URL',onkeyup : urlChange})
-          ]),
-          withAttr(createElement('button',styles['buttonsend'],T('SEND')),{onclick : apiRequester})
-        ]),
-        createElement('div',styles['requestapi'],[
-          createElement('div',styles['headersdiv'],[
-            createElement('span',[styles['coltitle']],[T('Headers')]),
-            createElement('div',styles['headerslist'],apiHandler.getApiHeader().map(headerListEach),"headerslist"),
-            withAttr(createElement('button',styles['headersaddbutton'],[T('+ Add header')]),{onclick:addheader}),
-          ]),
-          createElement('div',styles['requestbodydiv'],[
-            createElement('span',[styles['coltitle']],[T('Request Body')]),
-            withAttr(createElement('textarea',styles['reqdivtextarea'],[]),{placeholder:"Enter request body here",onchange:bodyChange})
-          ])
-        ])
-      ]),
-      createElement('div',styles['rightresponse'],[
-        createElement('span',[styles['coltitle']],[T('Response')]),
-        createElement('div',[styles['respbody']],[T('Response will be displayed here')],"responses")
-      ])
-    ])
-  ]);
+  return <div className={styles['main']}>
 
+          <div className={styles['left']}>
+            <div className={styles['lefttitle']}>History</div>
+            <div className={styles['historylisthere']} id="historylist">{apiHandler.getApiHistory().map(historyListEach)}</div>
+          </div>
+
+          <div className={styles['right']} >
+
+            <div className={styles['rightinner']} >
+              <h3  className={styles['apititle']}>Test an API</h3>
+              <div className={styles['apiurlbox']} >
+                <div className={styles['lefturl']} >
+                  <span  className={styles['coltitle']} >Method </span>
+                  <select className={styles['methodlist']} onchange={methodchange}>{apiHandler.getApiType().map(methodListMap)}</select>
+                </div>
+                <div className={styles['righturl']} >
+                  <span className={styles['coltitle']} >API endpoint</span>
+                  <input className={styles['apiurl']} placeholder='Enter URL' onkeyup={urlChange} />
+                </div>
+                <button className={styles['buttonsend']} onclick={apiRequester}>SEND</button>
+              </div>
+              <div className={styles['requestapi']} >
+                <div className={styles['headersdiv']} >
+                  <span className={styles['coltitle']} >Headers</span>
+                  <div className={styles['headerslist']} id="headerslist">{apiHandler.getApiHeader().map(headerListEach)}</div>
+                  <button className={styles['headersaddbutton']} onclick={addheader} >+ Add header</button>
+                </div>
+                <div className={styles['requestbodydiv']} >
+                  <span className={styles['coltitle']} >Request Body</span>
+                  <textarea className={styles['reqdivtextarea']} placeholder="Enter request body here" onchange={bodyChange}></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles['rightresponse']} >
+                <span className={styles['coltitle']} >Response</span>
+                <div className={styles['respbody']} id="responses" >Response will be displayed here</div>
+            </div>
+
+          </div>
+
+    </div>;
 }
