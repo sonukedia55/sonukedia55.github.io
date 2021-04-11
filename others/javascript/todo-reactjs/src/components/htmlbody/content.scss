@@ -1,0 +1,12 @@
+*{
+    margin : 0;
+}
+.headerclass{
+    display: flex;
+    max-height: 70px;
+    background-color: aquamarine;
+    justify-content: space-between;
+    .headersection{
+        padding: 10px 20px;
+    }
+}
