@@ -12067,8 +12067,8 @@ var DialogState = /*#__PURE__*/function () {
   }, {
     key: "openDialog",
     value: function openDialog(id) {
-      if (id) this.editId = id;
-      this.trigger[0]();
+      if (id) this.editId = id;else this.editId = 0;
+      this.trigger[0](id);
     }
   }, {
     key: "getEditId",
@@ -12103,8 +12103,8 @@ var Dialog = /*#__PURE__*/function (_React$Component) {
 
   _createClass(Dialog, [{
     key: "openDialog",
-    value: function openDialog() {
-      var dgId = dialogstate.getEditId();
+    value: function openDialog(id) {
+      var dgId = id || dialogstate.getEditId();
       console.log(dgId, "ddid");
 
       if (dgId) {
@@ -12192,7 +12192,55 @@ var EntryAdd = /*#__PURE__*/function (_React$Component2) {
 
       this.props.addEntry();
       this.props.closeDialog();
+    } // comp
+
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log("M p: ");
+      var date1 = false;
+      console.log("T1: ", this);
+
+      if (this.props.editVal) {
+        date1 = new Date(this.props.editVal.year, this.props.editVal.month - 1, this.props.editVal.day + 1);
+        date1 = date1.toISOString().split('T')[0];
+        this.inCRef.value = this.props.editVal.content;
+        this.inDRef.value = date1;
+        console.log(date1);
+      } else {
+        this.inCRef.value = '';
+        this.inDRef.value = '';
+        console.log("T: ", this);
+      }
+    } // shouldComponentUpdate() {
+    //     // return false;
+    // }
+
+  }, {
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps() {}
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      console.log("U: p");
+      var date1 = false;
+      console.log("T1: ", this);
+
+      if (this.props.editVal) {
+        date1 = new Date(this.props.editVal.year, this.props.editVal.month - 1, this.props.editVal.day + 1);
+        date1 = date1.toISOString().split('T')[0];
+        this.inCRef.value = this.props.editVal.content;
+        this.inDRef.value = date1;
+        console.log(date1);
+      } else {
+        this.inCRef.value = '';
+        this.inDRef.value = '';
+        console.log("T: ", this);
+      }
     }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {}
   }, {
     key: "render",
     value: function render() {
@@ -12211,22 +12259,26 @@ var EntryAdd = /*#__PURE__*/function (_React$Component2) {
         ref: function ref(inCR) {
           return _this4.inCRef = inCR;
         },
-        "data-type": "form_content",
+        "data-type": "form_content" // value={this.props.editVal ? this.props.editVal.content : ''}
+        ,
         placeholder: "Write entry here..."
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
         className: _dialog_scss__WEBPACK_IMPORTED_MODULE_2___default.a["addbutton"],
         onClick: this.addEntry.bind(this)
-      }, this.props.editVal ? 'Update' : '+ Add'));
-      var date1 = false;
-
-      if (this.props.editVal) {
-        date1 = new Date(this.props.editVal.year, this.props.editVal.month - 1, this.props.editVal.day + 1);
-        date1 = date1.toISOString().split('T')[0];
-        this.inCRef.value = this.props.editVal.content;
-        this.inDRef.value = date1;
-        console.log(date1);
-      }
+      }, this.props.editVal ? 'Update' : '+ Add')); // let date1 = false
+      // console.log("T1: ", this)
+      // if(this.props.editVal){
+      //     date1 = new Date(this.props.editVal.year, this.props.editVal.month - 1, this.props.editVal.day+1)
+      //     date1 = date1.toISOString().split('T')[0]
+      //     this.inCRef.value = this.props.editVal.content
+      //     this.inDRef.value = date1
+      //     console.log(date1)
+      // } else {
+      //     this.inCRef.value = ''
+      //     this.inDRef.value = ''
+      //     console.log("T: ", this)
+      // }
 
       return inputDialog;
     }
@@ -12453,11 +12505,7 @@ var AppRoute = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-        path: "/:year?/:month?",
-        component: _components_app__WEBPACK_IMPORTED_MODULE_2__["default"]
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-        path: "/:year",
-        exact: true,
+        path: "/others/javascript/diary/dist/:year?/:month?",
         component: _components_app__WEBPACK_IMPORTED_MODULE_2__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/",

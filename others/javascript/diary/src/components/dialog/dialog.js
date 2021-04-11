@@ -12,7 +12,8 @@ class DialogState{
     }
     openDialog(id){
         if(id)this.editId = id
-        this.trigger[0]()
+        else this.editId = 0
+        this.trigger[0](id)
     }
     getEditId(){
         return this.editId
@@ -31,8 +32,8 @@ class Dialog extends React.Component{
         }
         dialogstate.triggerF(this.openDialog.bind(this))
     }
-    openDialog(){
-        const dgId = dialogstate.getEditId()
+    openDialog(id){
+        const dgId = id || dialogstate.getEditId()
         console.log(dgId,"ddid")
         if(dgId){
             const tmEntry = storageHandler.getEntries(dgId)[0]
@@ -86,6 +87,50 @@ class EntryAdd extends React.Component{
         this.props.addEntry()
         this.props.closeDialog()
     }
+    // comp
+    componentDidMount() {
+        console.log("M p: ")
+        let date1 = false
+        console.log("T1: ", this)
+        if(this.props.editVal){
+            date1 = new Date(this.props.editVal.year, this.props.editVal.month - 1, this.props.editVal.day+1)
+            date1 = date1.toISOString().split('T')[0]
+            this.inCRef.value = this.props.editVal.content
+            this.inDRef.value = date1
+            console.log(date1)
+        } else {
+            this.inCRef.value = ''
+            this.inDRef.value = ''
+            console.log("T: ", this)
+        }
+    }
+    // shouldComponentUpdate() {
+    //     // return false;
+    // }
+    componentWillReceiveProps() {
+
+    }
+    componentDidUpdate() {
+        console.log("U: p")
+        let date1 = false
+        console.log("T1: ", this)
+        if(this.props.editVal){
+            date1 = new Date(this.props.editVal.year, this.props.editVal.month - 1, this.props.editVal.day+1)
+            date1 = date1.toISOString().split('T')[0]
+            this.inCRef.value = this.props.editVal.content
+            this.inDRef.value = date1
+            console.log(date1)
+        } else {
+            this.inCRef.value = ''
+            this.inDRef.value = ''
+            console.log("T: ", this)
+        }
+
+        
+    }
+    componentWillUnmount() {
+        
+    }
     render(){
         console.log(this.props.editVal ,"edV")
         
@@ -98,6 +143,7 @@ class EntryAdd extends React.Component{
               <input
                 ref={inCR => this.inCRef = inCR}
                 data-type="form_content"
+                // value={this.props.editVal ? this.props.editVal.content : ''}
                 placeholder="Write entry here..."
               />
               <button
@@ -109,14 +155,19 @@ class EntryAdd extends React.Component{
               </button>
         </div>
 
-        let date1 = false
-        if(this.props.editVal){
-            date1 = new Date(this.props.editVal.year, this.props.editVal.month - 1, this.props.editVal.day+1)
-            date1 = date1.toISOString().split('T')[0]
-            this.inCRef.value = this.props.editVal.content
-            this.inDRef.value = date1
-            console.log(date1)
-        }
+        // let date1 = false
+        // console.log("T1: ", this)
+        // if(this.props.editVal){
+        //     date1 = new Date(this.props.editVal.year, this.props.editVal.month - 1, this.props.editVal.day+1)
+        //     date1 = date1.toISOString().split('T')[0]
+        //     this.inCRef.value = this.props.editVal.content
+        //     this.inDRef.value = date1
+        //     console.log(date1)
+        // } else {
+        //     this.inCRef.value = ''
+        //     this.inDRef.value = ''
+        //     console.log("T: ", this)
+        // }
 
 
         return inputDialog
