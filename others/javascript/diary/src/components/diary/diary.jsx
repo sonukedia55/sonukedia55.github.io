@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../app.scss";
+import  Dialog ,{dialogstate}  from "../dialog/dialog";
 
 class Diary extends React.Component {
   constructor(props) {
@@ -15,6 +16,11 @@ class Diary extends React.Component {
     console.log(this.state,"st");
   }
 
+  editEntry(){
+    console.log(this)
+    dialogstate.openDialog(this)
+  }
+
   eachEntryN(item) {
     if (this.state.year && item.year != this.state.year) return null;
     if (this.state.month && item.month != this.state.month) return null;
@@ -25,7 +31,7 @@ class Diary extends React.Component {
         : "NA";
     return (
       <div key={item.id} className={styles["diaryeach"]}>
-        <b>{datehere}</b>
+        <div className={styles['eachdate']}><b>{datehere}</b><a data-pid={item.id} onClick={this.editEntry.bind(item.id)}>Edit</a></div>
         <p>{item.content}</p>
       </div>
     );
@@ -44,14 +50,6 @@ class Diary extends React.Component {
     }
   }
 
-//   setInputValueDate(e) {
-//     const ty = e.currentTarget.dataset["type"];
-//     if (ty) {
-//       this.setState({ [ty]: e.currentTarget.value });
-//     }
-//   }
-
-
   render() {
       console.log(this.state,"ts")
     return (
@@ -62,25 +60,6 @@ class Diary extends React.Component {
             <div className={styles["openadd"]} onClick={this.props.openDialog}>+</div>
           </div>
           <div className={styles["diaryentries"]}>
-            {/* <div className={styles["diaryeach"]}>
-                <input
-                  onKeyUp={this.setInputValueDate.bind(this)}
-                  data-type="form_date"
-                  placeholder="Enter Date (yyyy-mm-dd)"
-                />
-                <input
-                  onKeyUp={this.setInputValueDate.bind(this)}
-                  data-type="form_content"
-                  placeholder="Write entry here..."
-                />
-                <button
-                  type="button"
-                  className={styles["addbutton"]}
-                  onClick={this.addEntryClick.bind(this)}
-                >
-                  + Add
-                </button>
-              </div> */}
             {this.eachEntryLoad()}
           </div>
         </div>

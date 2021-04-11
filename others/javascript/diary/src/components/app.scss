@@ -61,9 +61,17 @@
         box-shadow: lightslategrey 0px 0px 1px 0px;
         flex-direction: column;
         padding: 20px;
-        b {
-          color: #b4b4b4;
-          font-size: 15px;
+        .eachdate{
+          display: flex;
+          justify-content: space-between;
+          b {
+            color: #b4b4b4;
+            font-size: 15px;
+          }
+          a{
+            cursor: pointer;
+            font-size: 12px;
+          }
         }
         p {
           color: black;

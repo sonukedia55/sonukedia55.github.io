@@ -11965,8 +11965,6 @@ var App = /*#__PURE__*/function (_React$Component2) {
   _createClass(App, [{
     key: "addEntry",
     value: function addEntry() {
-      // const newList = [...this.state.diaryList,newEntry]
-      // console.log(this.state.diaryList, "nll");
       console.log(this);
       this.setState({
         diaryList: _toConsumableArray(_utils_storage__WEBPACK_IMPORTED_MODULE_2__["storageHandler"].getEntries())
@@ -11976,6 +11974,7 @@ var App = /*#__PURE__*/function (_React$Component2) {
   }, {
     key: "openDialog",
     value: function openDialog() {
+      console.log(this, "el");
       _dialog_dialog__WEBPACK_IMPORTED_MODULE_3__["dialogstate"].openDialog();
     }
   }, {
@@ -12005,7 +12004,7 @@ var App = /*#__PURE__*/function (_React$Component2) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"header":"src-components-app__header","headersection":"src-components-app__headersection","title":"src-components-app__title","main":"src-components-app__main","diarysection":"src-components-app__diarysection","diarytitle":"src-components-app__diarytitle","openadd":"src-components-app__openadd","diaryentries":"src-components-app__diaryentries","diaryeach":"src-components-app__diaryeach","addbutton":"src-components-app__addbutton"};
+module.exports = {"header":"src-components-app__header","headersection":"src-components-app__headersection","title":"src-components-app__title","main":"src-components-app__main","diarysection":"src-components-app__diarysection","diarytitle":"src-components-app__diarytitle","openadd":"src-components-app__openadd","diaryentries":"src-components-app__diaryentries","diaryeach":"src-components-app__diaryeach","eachdate":"src-components-app__eachdate","addbutton":"src-components-app__addbutton"};
 
 /***/ }),
 
@@ -12057,6 +12056,7 @@ var DialogState = /*#__PURE__*/function () {
     _classCallCheck(this, DialogState);
 
     this.trigger = [];
+    this.editId = 0;
   }
 
   _createClass(DialogState, [{
@@ -12066,8 +12066,14 @@ var DialogState = /*#__PURE__*/function () {
     }
   }, {
     key: "openDialog",
-    value: function openDialog() {
+    value: function openDialog(id) {
+      if (id) this.editId = id;
       this.trigger[0]();
+    }
+  }, {
+    key: "getEditId",
+    value: function getEditId() {
+      return this.editId;
     }
   }]);
 
@@ -12088,6 +12094,9 @@ var Dialog = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     console.log(props, "pDD");
+    _this.state = {
+      editVal: null
+    };
     dialogstate.triggerF(_this.openDialog.bind(_assertThisInitialized(_this)));
     return _this;
   }
@@ -12095,6 +12104,24 @@ var Dialog = /*#__PURE__*/function (_React$Component) {
   _createClass(Dialog, [{
     key: "openDialog",
     value: function openDialog() {
+      var dgId = dialogstate.getEditId();
+      console.log(dgId, "ddid");
+
+      if (dgId) {
+        var tmEntry = _utils_storage__WEBPACK_IMPORTED_MODULE_1__["storageHandler"].getEntries(dgId)[0];
+        console.log(tmEntry);
+
+        if (tmEntry) {
+          this.setState({
+            editVal: tmEntry
+          });
+        }
+      } else {
+        this.setState({
+          editVal: null
+        });
+      }
+
       this.dialogContainer.classList.add(_dialog_scss__WEBPACK_IMPORTED_MODULE_2___default.a['open']);
     }
   }, {
@@ -12119,6 +12146,7 @@ var Dialog = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         onClick: this.closeDialog.bind(this)
       }, "X")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EntryAdd, _extends({}, this.props, {
+        editVal: this.state.editVal,
         closeDialog: this.closeDialog.bind(this)
       }))));
     }
@@ -12154,7 +12182,14 @@ var EntryAdd = /*#__PURE__*/function (_React$Component2) {
         id: new Date().getTime()
       };
       console.log(newEntry);
-      _utils_storage__WEBPACK_IMPORTED_MODULE_1__["storageHandler"].addEntry(newEntry);
+
+      if (this.props.editVal.id) {
+        console.log("updatethis", this.props.editVal.id);
+        _utils_storage__WEBPACK_IMPORTED_MODULE_1__["storageHandler"].updateEntry(newEntry, this.props.editVal.id);
+      } else {
+        _utils_storage__WEBPACK_IMPORTED_MODULE_1__["storageHandler"].addEntry(newEntry);
+      }
+
       this.props.addEntry();
       this.props.closeDialog();
     }
@@ -12163,7 +12198,8 @@ var EntryAdd = /*#__PURE__*/function (_React$Component2) {
     value: function render() {
       var _this4 = this;
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      console.log(this.props.editVal, "edV");
+      var inputDialog = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: _dialog_scss__WEBPACK_IMPORTED_MODULE_2___default.a['dialogcontent']
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         ref: function ref(inDR) {
@@ -12181,7 +12217,18 @@ var EntryAdd = /*#__PURE__*/function (_React$Component2) {
         type: "button",
         className: _dialog_scss__WEBPACK_IMPORTED_MODULE_2___default.a["addbutton"],
         onClick: this.addEntry.bind(this)
-      }, "+ Add"));
+      }, this.props.editVal ? 'Update' : '+ Add'));
+      var date1 = false;
+
+      if (this.props.editVal) {
+        date1 = new Date(this.props.editVal.year, this.props.editVal.month - 1, this.props.editVal.day + 1);
+        date1 = date1.toISOString().split('T')[0];
+        this.inCRef.value = this.props.editVal.content;
+        this.inDRef.value = date1;
+        console.log(date1);
+      }
+
+      return inputDialog;
     }
   }]);
 
@@ -12217,6 +12264,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _app_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../app.scss */ "./src/components/app.scss");
 /* harmony import */ var _app_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_app_scss__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _dialog_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../dialog/dialog */ "./src/components/dialog/dialog.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12238,6 +12286,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -12266,6 +12315,12 @@ var Diary = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(Diary, [{
+    key: "editEntry",
+    value: function editEntry() {
+      console.log(this);
+      _dialog_dialog__WEBPACK_IMPORTED_MODULE_2__["dialogstate"].openDialog(this);
+    }
+  }, {
     key: "eachEntryN",
     value: function eachEntryN(item) {
       if (this.state.year && item.year != this.state.year) return null;
@@ -12274,7 +12329,12 @@ var Diary = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: item.id,
         className: _app_scss__WEBPACK_IMPORTED_MODULE_1___default.a["diaryeach"]
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, datehere), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, item.content));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: _app_scss__WEBPACK_IMPORTED_MODULE_1___default.a['eachdate']
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, datehere), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        "data-pid": item.id,
+        onClick: this.editEntry.bind(item.id)
+      }, "Edit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, item.content));
     }
   }, {
     key: "eachEntryLoad",
@@ -12288,13 +12348,7 @@ var Diary = /*#__PURE__*/function (_React$Component) {
           className: _app_scss__WEBPACK_IMPORTED_MODULE_1___default.a["diaryeach"]
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "No entry yet!"));
       }
-    } //   setInputValueDate(e) {
-    //     const ty = e.currentTarget.dataset["type"];
-    //     if (ty) {
-    //       this.setState({ [ty]: e.currentTarget.value });
-    //     }
-    //   }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -12446,25 +12500,22 @@ function storage() {
       entries.push(entry);
       updateTodoMemory();
     },
-    getEntries: function getEntries() {
-      // console.log({year,month},"called")
-      // if (id) {
-      //     return entries.filter(a => a.id === id)
-      // }
-      // else if (year && month) {
-      //     return entries.filter(a => a.year == year && a.month == month)
-      // }
-      // else if (year) {
-      //     return entries.filter(a => a.year == year)
-      // }
+    getEntries: function getEntries(id) {
+      if (id) {
+        return entries.filter(function (a) {
+          return a.id === id;
+        });
+      }
+
       return entries;
     },
-    updateEntry: function updateEntry(_ref) {
-      var id = _ref.id,
-          date = _ref.date,
-          text = _ref.text;
-      entries.forEach(function (itm) {
-        itm.content = itm.id == id ? text : itm.content;
+    updateEntry: function updateEntry(item, id) {
+      entries.forEach(function (itm, i) {
+        if (itm.id == id) {
+          console.log("found ii");
+          item.id = id;
+          entries[i] = item;
+        }
       });
       updateTodoMemory();
     }

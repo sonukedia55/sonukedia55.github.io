@@ -30,15 +30,14 @@ class App extends React.Component {
   }
 
   addEntry() {
-    
-    // const newList = [...this.state.diaryList,newEntry]
-    // console.log(this.state.diaryList, "nll");
+  
     console.log(this)
     this.setState({ diaryList: [...storageHandler.getEntries()] });
     console.log(this.state.diaryList,"stt");
   }
 
   openDialog(){
+    console.log(this,"el")
     dialogstate.openDialog()
   }
 

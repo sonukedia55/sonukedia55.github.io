@@ -96,9 +96,15 @@
         box-shadow: lightslategrey 0px 0px 1px 0px;
         flex-direction: column;
         padding: 20px; }
-        .src-components-app__main .src-components-app__diarysection .src-components-app__diaryentries .src-components-app__diaryeach b {
-          color: #b4b4b4;
-          font-size: 15px; }
+        .src-components-app__main .src-components-app__diarysection .src-components-app__diaryentries .src-components-app__diaryeach .src-components-app__eachdate {
+          display: flex;
+          justify-content: space-between; }
+          .src-components-app__main .src-components-app__diarysection .src-components-app__diaryentries .src-components-app__diaryeach .src-components-app__eachdate b {
+            color: #b4b4b4;
+            font-size: 15px; }
+          .src-components-app__main .src-components-app__diarysection .src-components-app__diaryentries .src-components-app__diaryeach .src-components-app__eachdate a {
+            cursor: pointer;
+            font-size: 12px; }
         .src-components-app__main .src-components-app__diarysection .src-components-app__diaryentries .src-components-app__diaryeach p {
           color: black;
           padding-top: 15px;

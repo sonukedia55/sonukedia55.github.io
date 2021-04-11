@@ -13,22 +13,19 @@ function storage() {
             entries.push(entry)
             updateTodoMemory()
         },
-        getEntries: () => {
-            // console.log({year,month},"called")
-            // if (id) {
-            //     return entries.filter(a => a.id === id)
-            // }
-            // else if (year && month) {
-            //     return entries.filter(a => a.year == year && a.month == month)
-            // }
-            // else if (year) {
-            //     return entries.filter(a => a.year == year)
-            // }
+        getEntries: (id) => {
+            if (id) {
+                return entries.filter(a => a.id === id)
+            }
             return entries
         },
-        updateEntry: ({ id, date, text }) => {
-            entries.forEach(itm => {
-                itm.content = (itm.id == id) ? text : itm.content;
+        updateEntry: (item,id) => {
+            entries.forEach((itm,i) => {
+                if(itm.id==id){
+                    console.log("found ii")
+                    item.id = id
+                    entries[i] = item
+                }
             })
             updateTodoMemory()
         }
