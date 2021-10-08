@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      textarea {
+        width: 90%;
+      }
+      .col-md-6 {
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="row">
+        <div id="cap" style="display: flex; justify-content: space-around">
+          <div class="col-md-6">
+            <textarea
+              class="form-control"
+              name="string"
+              id="t1"
+              rows="15"
+              placeholder="Enter the text that you wish to encode or decode."
+            ></textarea>
+          </div>
+          <div class="col-md-6">
+            <textarea
+              class="form-control"
+              name="string2"
+              id="string2"
+              rows="15"
+              placeholder="Your results will appear here."
+            ></textarea>
+            <br />
+            <span class="glyphicon glyphicon-arrow-right" id="msg"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function copytext() {
+        console.log("ok");
+        document.querySelector('#string2').select();
+        console.log(document.execCommand('copy'));
+        document.querySelector('#msg').innerHTML = " Converted and copied!";
+    }
+    function convert(e) {
+      var mathml_html = e.target.value;
+      mathml_html = mathml_html.replace(/mml:/ig, "");
+      console.log(mathml_html);
+      mathml_html = mathml_html.replace(/:mml/ig, "");
+      mathml_html = mathml_html.split(' xmlns:m="');
+      if(mathml_html.length > 1)
+        mathml_html = mathml_html[0] + mathml_html[1].split('"')[1];
+      document.querySelector('#string2').value = mathml_html;
+      copytext();
+      return mathml_html;
+    }
+
+    var area = document.querySelector("#t1");
+    if (area.addEventListener) {
+      area.addEventListener(
+        "input",
+        function (e) {
+          convert(e);
+          // event handling code for sane browsers
+        },
+        false
+      );
+    }
+  </script>
+</html>
