@@ -51,8 +51,11 @@
       console.log(mathml_html);
       mathml_html = mathml_html.replace(/:mml/ig, "");
       mathml_html = mathml_html.split(' xmlns:m="');
-      if(mathml_html.length > 1)
-        mathml_html = mathml_html[0] + mathml_html[1].split('"')[1];
+      if(mathml_html.length > 1){
+			var tm = mathml_html[1].split('"');
+			tm.splice(0,1);
+			mathml_html = mathml_html[0] + tm.join('"');
+	  }
       document.querySelector('#string2').value = mathml_html;
       copytext();
       return mathml_html;
